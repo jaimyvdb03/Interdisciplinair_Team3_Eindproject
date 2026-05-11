@@ -1,0 +1,61 @@
+import { useNavigate } from 'react-router-dom';
+
+const LESSEN = [
+  { id: 1, title: 'Je CV maken',            meta: '2 min',         icon: '📄', bg: '#dbeafe', status: 'done'   },
+  { id: 2, title: 'Sollicitatiebrief',       meta: '1 opdrachten',  icon: '📋', bg: '#fef9c3', status: 'active' },
+  { id: 3, title: 'Kleding & gedrag',        meta: '0 van (WIP)',   icon: '👔', bg: '#ede9fe', status: 'wip'    },
+  { id: 4, title: 'Vacatures zoeken',        meta: '0 van (WIP)',   icon: '🔍', bg: '#d1fae5', status: 'wip'    },
+  { id: 5, title: 'Het sollicitatiegesprek', meta: '0 van (WIP)',   icon: '🗣️', bg: '#ffeaea', status: 'wip'    },
+  { id: 6, title: 'Op tijd komen',           meta: '0 van (WIP)',   icon: '⏰', bg: '#f3f4f6', status: 'wip'    },
+];
+
+export default function LessenOverzicht() {
+  const navigate = useNavigate();
+
+  return (
+    <div className="min-h-screen bg-gray-100">
+      <div className="w-full pb-10 sm:px-10 sm:pb-16">
+
+        {/* Header */}
+        <div className="flex items-center gap-3 px-4 pt-5 pb-3 bg-gray-100 sticky top-0 z-10 sm:px-0 sm:pt-7">
+          <button
+            onClick={() => navigate('/')}
+            className="w-[34px] h-[34px] rounded-full bg-gray-200 border-none flex items-center justify-center text-xl text-gray-800 cursor-pointer shrink-0 active:bg-gray-300 transition-colors leading-none pb-px"
+          >
+            ‹
+          </button>
+          <h1 className="text-[17px] font-bold text-gray-900">Lessen (Tekst en Audio)</h1>
+        </div>
+
+        {/* List */}
+        <div className="flex flex-col gap-2.5 px-4 pb-10 sm:px-0">
+          {LESSEN.map((les) => (
+            <button
+              key={les.id}
+              disabled={les.status === 'wip'}
+              className={`flex items-center gap-3.5 rounded-2xl px-3.5 py-3.5 sm:px-5 sm:py-4 text-left w-full border-none transition-transform
+                ${les.status === 'wip'
+                  ? 'bg-gray-200 shadow-none cursor-default'
+                  : 'bg-white shadow-sm cursor-pointer active:scale-[0.98]'
+                }`}
+            >
+              <div className="w-[46px] h-[46px] rounded-[13px] flex items-center justify-center text-xl shrink-0" style={{ background: les.bg }}>
+                {les.icon}
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className={`text-[14.5px] font-semibold leading-tight truncate ${les.status === 'wip' ? 'text-gray-400' : 'text-gray-900'}`}>
+                  {les.title}
+                </p>
+                <p className="text-xs text-gray-400 mt-0.5">{les.meta}</p>
+              </div>
+              {les.status === 'done'   && <span className="w-3 h-3 rounded-full bg-green-500 shrink-0" />}
+              {les.status === 'wip'    && <span className="w-3 h-3 rounded-full bg-gray-300 shrink-0" />}
+              {les.status === 'active' && <span className="text-xl text-gray-300 shrink-0">›</span>}
+            </button>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  );
+}
