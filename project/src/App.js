@@ -7,6 +7,8 @@ import SollicitatiebriefLes from './pages/lessen/SollicitatiebriefLes';
 import CvMaken from './pages/exercises/CvMaken';
 import Sollicitatiebrief from './pages/exercises/Sollicitatiebrief';
 import KledingGedrag from './pages/exercises/KledingGedrag';
+import VideoLessen from './pages/VideoLessen';
+import Hulp from './pages/Hulp';
 import './App.css';
 
 export default function App() {
@@ -21,6 +23,8 @@ export default function App() {
         <Route path="/oefeningen/cv-maken"            element={<CvMaken />} />
         <Route path="/oefeningen/sollicitatiebrief"   element={<Sollicitatiebrief />} />
         <Route path="/oefeningen/kleding-gedrag"      element={<KledingGedrag />} />
+        <Route path="/video"                          element={<VideoLessen />} />
+        <Route path="/hulp"                           element={<Hulp />} />
       </Routes>
     </BrowserRouter>
   );
