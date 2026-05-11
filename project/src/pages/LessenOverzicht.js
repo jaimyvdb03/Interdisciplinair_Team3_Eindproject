@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 
 const LESSEN = [
   { id: 1, title: 'Je CV maken',            meta: '2 min',         icon: '📄', bg: '#dbeafe', status: 'done',   to: '/lessen/cv-maken'          },
-  { id: 2, title: 'Sollicitatiebrief',       meta: '1 opdrachten',  icon: '📋', bg: '#fef9c3', status: 'active', to: '/lessen/sollicitatiebrief'  },
+  { id: 2, title: 'Sollicitatiebrief',       meta: '2 min',  icon: '📋', bg: '#fef9c3', status: 'active', to: '/lessen/sollicitatiebrief'  },
   { id: 3, title: 'Kleding & gedrag',        meta: '0 van (WIP)',   icon: '👔', bg: '#ede9fe', status: 'wip',    to: null                         },
   { id: 4, title: 'Vacatures zoeken',        meta: '0 van (WIP)',   icon: '🔍', bg: '#d1fae5', status: 'wip',    to: null                         },
   { id: 5, title: 'Het sollicitatiegesprek', meta: '0 van (WIP)',   icon: '🗣️', bg: '#ffeaea', status: 'wip',    to: null                         },
