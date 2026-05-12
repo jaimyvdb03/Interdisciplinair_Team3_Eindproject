@@ -1,12 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 
 const LESSEN = [
-  { id: 1, title: 'Je CV maken',            meta: '2 min',         icon: '📄', bg: '#dbeafe', status: 'done'   },
-  { id: 2, title: 'Sollicitatiebrief',       meta: '1 opdrachten',  icon: '📋', bg: '#fef9c3', status: 'active' },
-  { id: 3, title: 'Kleding & gedrag',        meta: '0 van (WIP)',   icon: '👔', bg: '#ede9fe', status: 'wip'    },
-  { id: 4, title: 'Vacatures zoeken',        meta: '0 van (WIP)',   icon: '🔍', bg: '#d1fae5', status: 'wip'    },
-  { id: 5, title: 'Het sollicitatiegesprek', meta: '0 van (WIP)',   icon: '🗣️', bg: '#ffeaea', status: 'wip'    },
-  { id: 6, title: 'Op tijd komen',           meta: '0 van (WIP)',   icon: '⏰', bg: '#f3f4f6', status: 'wip'    },
+  { id: 1, title: 'Je CV maken',            meta: '2 min',         icon: '📄', bg: '#dbeafe', status: 'done',   to: '/lessen/cv-maken'          },
+  { id: 2, title: 'Sollicitatiebrief',       meta: '2 min',  icon: '📋', bg: '#fef9c3', status: 'active', to: '/lessen/sollicitatiebrief'  },
+  { id: 3, title: 'Kleding & gedrag',        meta: '0 van (WIP)',   icon: '👔', bg: '#ede9fe', status: 'wip',    to: null                         },
+  { id: 4, title: 'Vacatures zoeken',        meta: '0 van (WIP)',   icon: '🔍', bg: '#d1fae5', status: 'wip',    to: null                         },
+  { id: 5, title: 'Het sollicitatiegesprek', meta: '0 van (WIP)',   icon: '🗣️', bg: '#ffeaea', status: 'wip',    to: null                         },
+  { id: 6, title: 'Op tijd komen',           meta: '0 van (WIP)',   icon: '⏰', bg: '#f3f4f6', status: 'wip',    to: null                         },
 ];
 
 export default function LessenOverzicht() {
@@ -16,7 +16,6 @@ export default function LessenOverzicht() {
     <div className="min-h-screen bg-gray-100">
       <div className="w-full pb-10 sm:px-10 sm:pb-16">
 
-        {/* Header */}
         <div className="flex items-center gap-3 px-4 pt-5 pb-3 bg-gray-100 sticky top-0 z-10 sm:px-0 sm:pt-7">
           <button
             onClick={() => navigate('/')}
@@ -27,12 +26,12 @@ export default function LessenOverzicht() {
           <h1 className="text-[17px] font-bold text-gray-900">Lessen (Tekst en Audio)</h1>
         </div>
 
-        {/* List */}
         <div className="flex flex-col gap-2.5 px-4 pb-10 sm:px-0">
           {LESSEN.map((les) => (
             <button
               key={les.id}
               disabled={les.status === 'wip'}
+              onClick={() => les.to && navigate(les.to)}
               className={`flex items-center gap-3.5 rounded-2xl px-3.5 py-3.5 sm:px-5 sm:py-4 text-left w-full border-none transition-transform
                 ${les.status === 'wip'
                   ? 'bg-gray-200 shadow-none cursor-default'
