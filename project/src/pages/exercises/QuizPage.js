@@ -31,7 +31,13 @@ export default function QuizPage({ title, backTo, question, options, feedback, c
           >
             ‹
           </button>
-          <h1 className="text-[17px] font-bold text-gray-900">{title}</h1>
+          <h1 className="text-[17px] font-bold text-gray-900 flex-1">{title}</h1>
+          <button
+            onClick={() => navigate('/')}
+            className="w-[34px] h-[34px] rounded-full bg-gray-200 border-none flex items-center justify-center text-base text-gray-600 cursor-pointer shrink-0 active:bg-gray-300 transition-colors"
+          >
+            🏠
+          </button>
         </div>
 
         {/* Question card */}
