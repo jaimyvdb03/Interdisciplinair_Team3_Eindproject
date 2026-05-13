@@ -51,7 +51,13 @@ export default function KledingGedrag() {
           >
             ‹
           </button>
-          <h1 className="text-[17px] font-bold text-gray-900">Oefenen: Kleding en gedrag</h1>
+          <h1 className="text-[17px] font-bold text-gray-900 flex-1">Oefenen: Kleding en gedrag</h1>
+          <button
+            onClick={() => navigate('/')}
+            className="w-[34px] h-[34px] rounded-full bg-gray-200 border-none flex items-center justify-center text-base text-gray-600 cursor-pointer shrink-0 active:bg-gray-300 transition-colors"
+          >
+            🏠
+          </button>
         </div>
 
         {/* Question card */}
@@ -69,6 +75,7 @@ export default function KledingGedrag() {
           {OUTFITS.map((outfit) => (
             <button
               key={outfit.id}
+              data-testid={`outfit-${outfit.id}`}
               onClick={() => setSelected(outfit.id)}
               className={`flex-1 flex flex-col items-center rounded-2xl p-3 border-2 transition-all cursor-pointer
                 ${selected === outfit.id

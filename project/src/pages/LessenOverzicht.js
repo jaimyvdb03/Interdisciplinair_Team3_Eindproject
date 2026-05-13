@@ -23,7 +23,13 @@ export default function LessenOverzicht() {
           >
             ‹
           </button>
-          <h1 className="text-[17px] font-bold text-gray-900">Lessen (Tekst en Audio)</h1>
+          <h1 className="text-[17px] font-bold text-gray-900 flex-1">Lessen (Tekst en Audio)</h1>
+          <button
+            onClick={() => navigate('/')}
+            className="w-[34px] h-[34px] rounded-full bg-gray-200 border-none flex items-center justify-center text-base text-gray-600 cursor-pointer shrink-0 active:bg-gray-300 transition-colors"
+          >
+            🏠
+          </button>
         </div>
 
         <div className="flex flex-col gap-2.5 px-4 pb-10 sm:px-0">
