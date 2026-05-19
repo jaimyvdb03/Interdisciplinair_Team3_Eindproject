@@ -1,5 +1,11 @@
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../i18n/translations';
+
 /** Scaled-down visual CV card matching the Figma design */
 export default function CvMockup({ highlight }) {
+  const { lang } = useLanguage();
+  const m = translations[lang].cvMockup;
+
   const hl = (section) =>
     highlight === section ? 'bg-yellow-100 rounded' : '';
 
@@ -12,7 +18,7 @@ export default function CvMockup({ highlight }) {
         </div>
         <div>
           <p className="font-bold text-[9px]">Illias Thijssen</p>
-          <p className="opacity-70 text-[7px]">Functietitel</p>
+          <p className="opacity-70 text-[7px]">{m.jobTitle}</p>
           <p className="opacity-60 text-[6px] mt-0.5">📧 illias@email.nl  📞 06-12345678</p>
         </div>
       </div>
@@ -21,40 +27,40 @@ export default function CvMockup({ highlight }) {
         {/* Left column */}
         <div className="w-2/5 bg-gray-50 p-2 flex flex-col gap-1.5">
           <div>
-            <p className="font-bold text-[7px] uppercase tracking-wide text-gray-500 mb-0.5">Talen</p>
-            <p className="text-gray-600">Nederlands</p>
-            <p className="text-gray-600">Engels</p>
+            <p className="font-bold text-[7px] uppercase tracking-wide text-gray-500 mb-0.5">{m.languages}</p>
+            <p className="text-gray-600">{m.lang1}</p>
+            <p className="text-gray-600">{m.lang2}</p>
           </div>
           <div>
-            <p className="font-bold text-[7px] uppercase tracking-wide text-gray-500 mb-0.5">Vaardigheden</p>
-            <p className="text-gray-600">• Teamwerk</p>
-            <p className="text-gray-600">• Plannen</p>
-            <p className="text-gray-600">• Communicatie</p>
+            <p className="font-bold text-[7px] uppercase tracking-wide text-gray-500 mb-0.5">{m.skills}</p>
+            <p className="text-gray-600">• {m.skill1}</p>
+            <p className="text-gray-600">• {m.skill2}</p>
+            <p className="text-gray-600">• {m.skill3}</p>
           </div>
           <div>
-            <p className="font-bold text-[7px] uppercase tracking-wide text-gray-500 mb-0.5">Hobby's</p>
-            <p className="text-gray-600">• Sporten</p>
-            <p className="text-gray-600">• Lezen</p>
+            <p className="font-bold text-[7px] uppercase tracking-wide text-gray-500 mb-0.5">{m.hobbies}</p>
+            <p className="text-gray-600">• {m.hobby1}</p>
+            <p className="text-gray-600">• {m.hobby2}</p>
           </div>
         </div>
 
         {/* Right column */}
         <div className="flex-1 p-2 flex flex-col gap-1.5">
           <div className={hl('profiel')}>
-            <p className="font-bold text-[7px] uppercase tracking-wide text-gray-500 mb-0.5">Persoonlijk profiel</p>
-            <p className="text-gray-600">Hardwerkend en gemotiveerd. Ik ben op zoek naar een functie waarbij ik mezelf kan ontwikkelen.</p>
+            <p className="font-bold text-[7px] uppercase tracking-wide text-gray-500 mb-0.5">{m.profile}</p>
+            <p className="text-gray-600">{m.profileText}</p>
           </div>
           <div className={hl('werkervaring')}>
-            <p className="font-bold text-[7px] uppercase tracking-wide text-gray-500 mb-0.5">Werkervaring</p>
-            <p className="font-semibold text-gray-700">Functietitel, bedrijfsnaam</p>
-            <p className="text-gray-500">Begindatum – Einddatum</p>
-            <p className="text-gray-600">• Taak 1</p>
-            <p className="text-gray-600">• Taak 2</p>
+            <p className="font-bold text-[7px] uppercase tracking-wide text-gray-500 mb-0.5">{m.experience}</p>
+            <p className="font-semibold text-gray-700">{m.expTitle}</p>
+            <p className="text-gray-500">{m.expDates}</p>
+            <p className="text-gray-600">• {m.task1}</p>
+            <p className="text-gray-600">• {m.task2}</p>
           </div>
           <div className={hl('opleiding')}>
-            <p className="font-bold text-[7px] uppercase tracking-wide text-gray-500 mb-0.5">Opleidingen</p>
-            <p className="font-semibold text-gray-700">Gevolgde studie, opleidingsinstituut, plaats</p>
-            <p className="text-gray-500">Begindatum – eindatum</p>
+            <p className="font-bold text-[7px] uppercase tracking-wide text-gray-500 mb-0.5">{m.education}</p>
+            <p className="font-semibold text-gray-700">{m.eduTitle}</p>
+            <p className="text-gray-500">{m.eduDates}</p>
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { LanguageProvider } from './context/LanguageContext';
 import Home from './pages/Home';
 import LessenOverzicht from './pages/LessenOverzicht';
 import OefeningenOverzicht from './pages/OefeningenOverzicht';
@@ -13,6 +14,7 @@ import './App.css';
 
 export default function App() {
   return (
+    <LanguageProvider>
     <BrowserRouter>
       <Routes>
         <Route path="/"                               element={<Home />} />
@@ -27,5 +29,6 @@ export default function App() {
         <Route path="/hulp"                           element={<Hulp />} />
       </Routes>
     </BrowserRouter>
+    </LanguageProvider>
   );
 }

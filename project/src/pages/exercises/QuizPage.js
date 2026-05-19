@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useLanguage } from '../../context/LanguageContext';
+import { translations } from '../../i18n/translations';
 
 /**
  * Reusable multiple-choice quiz page (text answers).
@@ -14,8 +16,10 @@ import { useNavigate } from 'react-router-dom';
  */
 export default function QuizPage({ title, backTo, question, options, feedback, correctId }) {
   const navigate = useNavigate();
-  const [selected, setSelected]     = useState(null);
-  const [showPopup, setShowPopup]   = useState(false);
+  const { lang } = useLanguage();
+  const tc = translations[lang].common;
+  const [selected, setSelected]   = useState(null);
+  const [showPopup, setShowPopup] = useState(false);
 
   const isCorrect = selected === correctId;
 
@@ -45,7 +49,7 @@ export default function QuizPage({ title, backTo, question, options, feedback, c
           <div className="flex justify-between items-start gap-3">
             <p className="text-[17px] font-bold text-gray-900 leading-snug flex-1">{question}</p>
             <button className="flex items-center gap-1.5 bg-gray-100 rounded-full px-3 py-1.5 text-sm text-gray-500 shrink-0 border-none cursor-pointer whitespace-nowrap">
-              🔊 Luister
+              {tc.listen}
             </button>
           </div>
         </div>
@@ -68,14 +72,14 @@ export default function QuizPage({ title, backTo, question, options, feedback, c
           ))}
         </div>
 
-        {/* Controleren */}
+        {/* Check button */}
         <div className="px-4 mt-6 sm:px-0">
           <button
             onClick={() => selected && setShowPopup(true)}
             className={`block w-full rounded-2xl py-4 text-base font-bold text-white border-none transition-colors
               ${selected ? 'bg-blue-600 cursor-pointer active:bg-blue-800' : 'bg-blue-300 cursor-default'}`}
           >
-            Controleren
+            {tc.check}
           </button>
         </div>
 
@@ -95,7 +99,7 @@ export default function QuizPage({ title, backTo, question, options, feedback, c
               </div>
               <div className="flex items-center gap-2">
                 <button className="flex items-center gap-1.5 bg-gray-100 rounded-full px-3 py-1.5 text-sm text-gray-500 border-none cursor-pointer">
-                  🔊 Luister
+                  {tc.listen}
                 </button>
                 <button
                   onClick={() => setShowPopup(false)}
@@ -109,12 +113,12 @@ export default function QuizPage({ title, backTo, question, options, feedback, c
             {/* Feedback text */}
             <p className="text-sm text-gray-700 leading-relaxed mb-6">{feedback[selected]}</p>
 
-            {/* Terug naar home */}
+            {/* Back to home */}
             <button
               onClick={() => navigate('/')}
               className="block w-full bg-blue-600 text-white rounded-2xl py-4 text-base font-bold border-none cursor-pointer active:bg-blue-800"
             >
-              Terug naar home
+              {tc.backHome}
             </button>
           </div>
         </div>
