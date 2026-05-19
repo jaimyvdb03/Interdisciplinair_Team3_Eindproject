@@ -29,12 +29,12 @@ export default function Home() {
         <p className="px-5 pb-4 pt-1 text-sm text-gray-400 sm:px-0">Klaar om verder te leren?</p>
 
         {/* Menu cards - responsive grid */}
-        <div className="grid grid-cols-1 gap-2.5 px-4 pb-4 sm:px-0 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-2.5 px-4 pb-4 sm:px-0 sm:grid-cols-2 place-items-center">
           {/* First row: Lessen & Video lessen */}
           <button
             key={MENU[0].label}
             onClick={() => navigate(MENU[0].to)}
-            className="flex items-center gap-3.5 bg-white rounded-2xl px-3.5 py-3.5 sm:px-5 sm:py-4 cursor-pointer text-left w-full shadow-sm border-none active:scale-[0.98] transition-transform"
+            className="flex items-center gap-3.5 bg-white rounded-2xl px-3.5 py-3.5 sm:px-5 sm:py-4 cursor-pointer text-left w-full shadow-sm border-none active:scale-[0.98] transition-transform max-w-xl w-full"
           >
             <div className={`w-12 h-12 rounded-[13px] flex items-center justify-center shrink-0 ${MENU[0].iconBg}`}>
               <img src={MENU[0].icon} alt={MENU[0].label + ' icoon'} className="w-8 h-8 object-contain" />
@@ -48,7 +48,7 @@ export default function Home() {
           <button
             key={MENU[1].label}
             onClick={() => navigate(MENU[1].to)}
-            className="flex items-center gap-3.5 bg-white rounded-2xl px-3.5 py-3.5 sm:px-5 sm:py-4 cursor-pointer text-left w-full shadow-sm border-none active:scale-[0.98] transition-transform"
+            className="flex items-center gap-3.5 bg-white rounded-2xl px-3.5 py-3.5 sm:px-5 sm:py-4 cursor-pointer text-left w-full shadow-sm border-none active:scale-[0.98] transition-transform max-w-xl w-full"
           >
             <div className={`w-12 h-12 rounded-[13px] flex items-center justify-center shrink-0 ${MENU[1].iconBg}`}>
               <img src={MENU[1].icon} alt={MENU[1].label + ' icoon'} className="w-8 h-8 object-contain" />
@@ -63,7 +63,7 @@ export default function Home() {
           <button
             key={MENU[2].label}
             onClick={() => navigate(MENU[2].to)}
-            className="flex items-center gap-3.5 bg-white rounded-2xl px-3.5 py-3.5 sm:px-5 sm:py-4 cursor-pointer text-left w-full shadow-sm border-none active:scale-[0.98] transition-transform"
+            className="flex items-center gap-3.5 bg-white rounded-2xl px-3.5 py-3.5 sm:px-5 sm:py-4 cursor-pointer text-left w-full shadow-sm border-none active:scale-[0.98] transition-transform max-w-xl w-full"
           >
             <div className={`w-12 h-12 rounded-[13px] flex items-center justify-center shrink-0 ${MENU[2].iconBg}`}>
               <img src={MENU[2].icon} alt={MENU[2].label + ' icoon'} className="w-8 h-8 object-contain" />
@@ -77,7 +77,7 @@ export default function Home() {
           <button
             key={MENU[3].label}
             onClick={() => navigate(MENU[3].to)}
-            className="flex items-center gap-3.5 bg-white rounded-2xl px-3.5 py-3.5 sm:px-5 sm:py-4 cursor-pointer text-left w-full shadow-sm border-none active:scale-[0.98] transition-transform"
+            className="flex items-center gap-3.5 bg-white rounded-2xl px-3.5 py-3.5 sm:px-5 sm:py-4 cursor-pointer text-left w-full shadow-sm border-none active:scale-[0.98] transition-transform max-w-xl w-full"
           >
             <div className={`w-12 h-12 rounded-[13px] flex items-center justify-center shrink-0 ${MENU[3].iconBg}`}>
               <img src={MENU[3].icon} alt={MENU[3].label + ' icoon'} className="w-8 h-8 object-contain" />
