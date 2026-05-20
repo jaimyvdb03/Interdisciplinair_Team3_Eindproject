@@ -24,6 +24,19 @@ export const translations = {
       progressSub:   (c, t) => `${c} van ${t} lessen afgerond`,
       cta:           'Ga verder',
       langPickerTitle: 'Kies je taal',
+      help: {
+        popupTitle: 'Uitleg',
+        close: 'Sluiten',
+        steps: [
+          { title: 'Wat kun je doen?',       desc: 'De app heeft vier onderdelen. Klik op een optie om te beginnen.' },
+          { title: 'Je voortgang',           desc: 'Hier zie je hoeveel procent van de lessen je al hebt gedaan en hoeveel je nog moet doen.' },
+          { title: 'Zo werkt een les',       desc: 'Je leest een tekst. Klik op 🔊 Luister om het te horen. Klik op Volgende om naar het volgende deel te gaan.' },
+          { title: 'Zo werkt een oefening', desc: 'Kies het goede antwoord en tik op Controleren. Je ziet dan meteen of het goed was.' },
+          { title: 'Zo werkt een video les',        desc: 'Klik op een video om hem te bekijken. Je kunt stoppen en opnieuw beginnen wanneer je wil.' },
+          { title: 'Oefen een sollicitatiegesprek', desc: 'Klik op Start het gesprek. Sanne stelt je vragen, net als in een echt gesprek. Aan het eind krijg je een cijfer en tips.' },
+          { title: 'Hulp nodig?',                   desc: 'Begrijp je iets niet? Klik op deze optie. Dan kun je een vraag stellen.' },
+        ],
+      },
     },
     cvLes: {
       pageTitle: 'Je CV maken',
@@ -166,6 +179,19 @@ export const translations = {
       progressSub:   (c, t) => `${c} of ${t} lessons completed`,
       cta:           'Continue',
       langPickerTitle: 'Choose your language',
+      help: {
+        popupTitle: 'How it works',
+        close: 'Close',
+        steps: [
+          { title: 'What can you do?',         desc: 'The app has four sections. Click an option to get started.' },
+          { title: 'Your progress',            desc: 'Here you can see how many percent of the lessons you have already completed.' },
+          { title: 'How a lesson works',       desc: 'You read a text. Click 🔊 Listen to hear it. Click Next to go to the next part.' },
+          { title: 'How an exercise works',    desc: 'Choose the correct answer and click Check. You will see immediately if it was right.' },
+          { title: 'How a video lesson works',  desc: 'Click on a video to watch it. You can pause and restart whenever you want.' },
+          { title: 'Practise a job interview',  desc: 'Click Start the conversation. Sanne asks you questions, just like in a real interview. At the end you get a score and tips.' },
+          { title: 'Need help?',                desc: "Don't understand something? Click this option. You can then ask a question." },
+        ],
+      },
     },
     cvLes: {
       pageTitle: 'Making your CV',
@@ -308,6 +334,19 @@ export const translations = {
       progressSub:   (c, t) => `${c} de ${t} lecciones completadas`,
       cta:           'Continuar',
       langPickerTitle: 'Elige tu idioma',
+      help: {
+        popupTitle: 'Cómo funciona',
+        close: 'Cerrar',
+        steps: [
+          { title: '¿Qué puedes hacer?',        desc: 'La app tiene cuatro secciones. Haz clic en una opción para empezar.' },
+          { title: 'Tu progreso',               desc: 'Aquí puedes ver qué porcentaje de las lecciones has completado.' },
+          { title: 'Cómo funciona una lección', desc: 'Lee un texto. Haz clic en 🔊 Escuchar para oírlo. Haz clic en Siguiente para ir a la siguiente parte.' },
+          { title: 'Cómo funciona un ejercicio',desc: 'Elige la respuesta correcta y haz clic en Comprobar. Verás inmediatamente si era correcta.' },
+          { title: 'Cómo funciona una video lección', desc: 'Haz clic en un vídeo para verlo. Puedes pausar y volver a empezar cuando quieras.' },
+          { title: 'Practica una entrevista de trabajo', desc: 'Haz clic en Iniciar la conversación. Sanne te hace preguntas como en una entrevista real. Al final recibes una puntuación y consejos.' },
+          { title: '¿Necesitas ayuda?',             desc: '¿No entiendes algo? Haz clic en esta opción. Podrás hacer una pregunta.' },
+        ],
+      },
     },
     cvLes: {
       pageTitle: 'Hacer tu CV',
@@ -450,6 +489,19 @@ export const translations = {
       progressSub:   (c, t) => `${t} dersten ${c} tanesi tamamlandı`,
       cta:           'Devam et',
       langPickerTitle: 'Dilinizi seçin',
+      help: {
+        popupTitle: 'Nasıl çalışır',
+        close: 'Kapat',
+        steps: [
+          { title: 'Ne yapabilirsiniz?',         desc: 'Uygulamanın dört bölümü var. Başlamak için bir seçeneğe tıklayın.' },
+          { title: 'İlerlemeniz',                desc: 'Burada derslerin yüzde kaçını tamamladığınızı görebilirsiniz.' },
+          { title: 'Ders nasıl çalışır',         desc: 'Bir metin okuyorsunuz. 🔊 Dinle\'ye tıklayarak dinleyebilirsiniz. Sonraki\'ye tıklayarak devam edin.' },
+          { title: 'Alıştırma nasıl çalışır',    desc: 'Doğru cevabı seçin ve Kontrol et\'e tıklayın. Cevabınızın doğru olup olmadığını hemen göreceksiniz.' },
+          { title: 'Video ders nasıl çalışır',   desc: 'İzlemek için bir videoya tıklayın. İstediğinizde durdurup yeniden başlatabilirsiniz.' },
+          { title: 'İş görüşmesi alıştırması',   desc: 'Konuşmayı Başlat\'a tıklayın. Sanne size gerçek bir görüşme gibi sorular sorar. Sonunda bir puan ve ipuçları alırsınız.' },
+          { title: 'Yardım lazım mı?',           desc: 'Bir şeyi anlamadınız mı? Bu seçeneğe tıklayın. Soru sorabilirsiniz.' },
+        ],
+      },
     },
     cvLes: {
       pageTitle: "CV'nizi Hazırlama",
@@ -592,6 +644,19 @@ export const translations = {
       progressSub:   (c, t) => `${c} من ${t} دروس مكتملة`,
       cta:           'تابع',
       langPickerTitle: 'اختر لغتك',
+      help: {
+        popupTitle: 'كيف يعمل التطبيق',
+        close: 'إغلاق',
+        steps: [
+          { title: 'ماذا يمكنك فعله؟',       desc: 'التطبيق لديه أربعة أقسام. انقر على خيار للبدء.' },
+          { title: 'تقدمك',                   desc: 'هنا يمكنك رؤية كم بالمئة من الدروس أكملت.' },
+          { title: 'كيف تعمل الدرس',          desc: 'تقرأ نصاً. انقر على 🔊 استمع لسماعه. انقر على التالي للمتابعة.' },
+          { title: 'كيف يعمل التمرين',            desc: 'اختر الإجابة الصحيحة وانقر على تحقق. ستعرف فوراً إذا كانت إجابتك صحيحة.' },
+          { title: 'كيف تعمل درس الفيديو',        desc: 'انقر على فيديو لمشاهدته. يمكنك إيقافه وإعادة تشغيله متى تشاء.' },
+          { title: 'تدرب على مقابلة عمل',          desc: 'انقر على بدء المحادثة. ستطرح عليك Sanne أسئلة مثل مقابلة حقيقية. في النهاية تحصل على درجة ونصائح.' },
+          { title: 'تحتاج مساعدة؟',               desc: 'لم تفهم شيئاً؟ انقر على هذا الخيار. يمكنك طرح سؤال.' },
+        ],
+      },
     },
     cvLes: {
       pageTitle: 'إعداد سيرتك الذاتية',
