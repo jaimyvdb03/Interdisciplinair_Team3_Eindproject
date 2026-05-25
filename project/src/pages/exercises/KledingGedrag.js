@@ -1,48 +1,74 @@
+
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const OUTFITS = [
+const getImg = (name) => process.env.PUBLIC_URL + `/images/kleding&gedrag/${name}`;
+
+const EXERCISES = [
   {
-    id: 'A',
-    label: 'Overhemd',
-    emoji: '👔',
-    colors: 'bg-blue-50',
-    description: 'Lichtblauw overhemd, nette broek',
+    question: 'Welk outfit zou je aan willen doen bij een sollicitatie voor een kantoorbaan?',
+    options: [
+      { id: 'A', img: getImg('vraag1/office_suit.png'), label: 'Net pak of nette kleding' },
+      { id: 'B', img: getImg('vraag1/casual.png'), label: 'Casual kleding' },
+      { id: 'C', img: getImg('vraag1/sportswear.png'), label: 'Sportieve kleding' },
+    ],
+    correct: ['A', 'B'], // Allow both A and B as correct answers
+    feedback: {
+      A: 'Dit is een goede keuze voor een sollicitatiegesprek. Nette kleding laat zien dat je het gesprek serieus neemt.',
+      B: 'Casual kleding is meestal niet netjes genoeg voor een sollicitatiegesprek op kantoor.',
+      C: 'Sportieve kleding is niet geschikt voor een sollicitatiegesprek op kantoor.',
+    },
+    feedback: {
+      A: 'Dit is een goede keuze voor een sollicitatiegesprek. Nette kleding laat zien dat je het gesprek serieus neemt. Voor sommige kantoorbanen is een pak gewenst, voor andere is nette kleding voldoende.',
+      B: 'Dit kan ook een goede keuze zijn, afhankelijk van het soort kantoor en de functie. Zorg dat je er verzorgd uitziet en informeer eventueel naar de dresscode.',
+      C: 'Sportieve kleding is niet geschikt voor een sollicitatiegesprek op kantoor.',
+    },
   },
   {
-    id: 'B',
-    label: 'Pak',
-    emoji: '🤵',
-    colors: 'bg-gray-800',
-    description: 'Zwart formeel pak',
-    emojiDark: true,
+    question: 'Welke van deze opties is NIET deel van het sollicitatieproces?',
+    options: [
+      { id: 'A', img: getImg('vraag2/interview.png'), label: 'Sollicitatiegesprek' },
+      { id: 'B', img: getImg('vraag2/baan_zoeken.png'), label: 'Sollicitatiebrief schrijven' },
+      { id: 'C', img: getImg('vraag2/werken.png'), label: 'Werken in een bloemenwinkel' },
+    ],
+    correct: 'C',
+    feedback: {
+      A: 'Een sollicitatiegesprek is een belangrijk onderdeel van het sollicitatieproces.',
+      B: 'Een sollicitatiebrief schrijven hoort bij het sollicitatieproces.',
+      C: 'Werken in een bloemenwinkel is geen onderdeel van het sollicitatieproces.',
+    },
   },
   {
-    id: 'C',
-    label: 'Trainingspak',
-    emoji: '🎽',
-    colors: 'bg-gray-100',
-    description: 'Casual trainingspak',
+    question: 'Wat is een juiste houding tijdens een interview?',
+    options: [
+      { id: 'A', img: getImg('vraag3/slouch.png'), label: 'Onderuitgezakt zitten' },
+      { id: 'B', img: getImg('vraag3/arms_crossed.png'), label: 'Armen over elkaar' },
+      { id: 'C', img: getImg('vraag3/upright.png'), label: 'Rechtop zitten, open houding' },
+    ],
+    correct: 'C',
+    feedback: {
+      A: 'Onderuitgezakt zitten maakt geen goede indruk tijdens een interview.',
+      B: 'Armen over elkaar kan gesloten overkomen.',
+      C: 'Rechtop zitten met een open houding is het beste tijdens een interview.',
+    },
   },
 ];
 
-const FEEDBACK = {
-  A: 'Dit is een goede keuze voor een sollicitatiegesprek. Een overhemd ziet er netjes en verzorgd uit en past goed bij de meeste banen. Met een overhemd laat je zien dat je je best doet en het gesprek serieus neemt. Zo maak je een goede eerste indruk.',
-  B: 'Dit kan soms te netjes zijn voor het type baan. Een pak is vooral passend bij heel formele functies en kan daardoor overdressed zijn. Voor veel sollicitatiegesprekken is optie A de betere keuze, omdat een overhemd netjes is maar ook beter past bij de meeste functies.',
-  C: 'De meeste kantoorbanen zouden deze keuze niet netjes genoeg vinden. Je kan beter voor optie A gaan, omdat dit er verzorgd en netjes uitziet en beter past bij een sollicitatiegesprek. Met nette kleding laat je zien dat je het gesprek serieus neemt. Zo maak je een goede eerste indruk en dat is belangrijk voor je kansen op de baan.',
-};
-
 export default function KledingGedrag() {
   const navigate = useNavigate();
-  const [selected, setSelected]   = useState(null);
+  const [step, setStep] = useState(0);
+  const [selected, setSelected] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
 
-  const isCorrect = selected === 'A';
+  const current = EXERCISES[step];
+  // Support both string and array for correct answers
+  const isCorrect = Array.isArray(current.correct)
+    ? current.correct.includes(selected)
+    : selected === current.correct;
 
   return (
     <div className="min-h-screen bg-gray-100">
       <div className="w-full pb-10 sm:px-10 sm:pb-16">
-
         {/* Header */}
         <div className="flex items-center gap-3 px-4 pt-5 pb-3 bg-gray-100 sticky top-0 z-10 sm:px-0 sm:pt-7">
           <button
@@ -63,38 +89,36 @@ export default function KledingGedrag() {
         {/* Question card */}
         <div className="mx-4 mb-4 bg-white rounded-2xl p-4 shadow-sm sm:mx-0">
           <p className="text-[17px] font-bold text-gray-900 leading-snug mb-3">
-            Welk outfit zou je aan willen doen bij een sollicitatie voor een kantoorbaan?
+            {current.question}
           </p>
           <button className="flex items-center gap-1.5 bg-gray-100 rounded-full px-3 py-1.5 text-sm text-gray-500 border-none cursor-pointer">
             🔊 Luister
           </button>
         </div>
 
-        {/* Character image options */}
+        {/* Image options */}
         <div className="flex gap-3 px-4 mb-6 sm:px-0">
-          {OUTFITS.map((outfit) => (
+          {current.options.map((option) => (
             <button
-              key={outfit.id}
-              data-testid={`outfit-${outfit.id}`}
-              onClick={() => setSelected(outfit.id)}
+              key={option.id}
+              onClick={() => setSelected(option.id)}
               className={`flex-1 flex flex-col items-center rounded-2xl p-3 border-2 transition-all cursor-pointer
-                ${selected === outfit.id
+                ${selected === option.id
                   ? 'border-blue-500 bg-blue-50'
                   : 'border-transparent bg-white shadow-sm hover:border-gray-200'
                 }`}
             >
-              {/* Character illustration */}
-              <div className={`w-full aspect-[3/4] rounded-xl mb-2 flex flex-col items-center justify-center ${outfit.colors}`}>
-                <span className="text-5xl">{outfit.emoji}</span>
-                <span className={`text-xs mt-1 font-medium text-center px-1 leading-tight ${outfit.emojiDark ? 'text-gray-300' : 'text-gray-500'}`}>
-                  {outfit.description}
-                </span>
+              <div className="w-full flex flex-col items-center justify-center bg-gray-50 overflow-hidden rounded-xl mb-2" style={{maxWidth: 140, maxHeight: 180, margin: '0 auto'}}>
+                <img 
+                  src={option.img} 
+                  alt={option.label} 
+                  style={{ maxWidth: 120, maxHeight: 160, width: '100%', height: 'auto', objectFit: 'contain', borderRadius: 12 }} 
+                />
               </div>
-              {/* Label + radio */}
-              <span className="text-xs font-bold text-gray-500 mb-2">{outfit.id}</span>
+              <span className="text-xs font-bold text-gray-500 mb-2">{option.id}</span>
               <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors
-                ${selected === outfit.id ? 'border-blue-500' : 'border-gray-300'}`}>
-                {selected === outfit.id && (
+                ${selected === option.id ? 'border-blue-500' : 'border-gray-300'}`}>
+                {selected === option.id && (
                   <div className="w-2.5 h-2.5 rounded-full bg-blue-500" />
                 )}
               </div>
@@ -103,16 +127,16 @@ export default function KledingGedrag() {
         </div>
 
         {/* Controleren */}
-        <div className="px-4 sm:px-0">
+        <div style={{ display: 'flex', justifyContent: 'center', minHeight: 80, alignItems: 'center', marginTop: 16, marginBottom: 16 }}>
           <button
             onClick={() => selected && setShowPopup(true)}
-            className={`block w-full rounded-2xl py-4 text-base font-bold text-white border-none transition-colors
+            className={`rounded-2xl py-4 px-10 text-base font-bold text-white border-none transition-colors
               ${selected ? 'bg-blue-600 cursor-pointer active:bg-blue-800' : 'bg-blue-300 cursor-default'}`}
+            style={{ minWidth: 220, maxWidth: 320 }}
           >
             Controleren
           </button>
         </div>
-
       </div>
 
       {/* Feedback popup */}
@@ -138,13 +162,26 @@ export default function KledingGedrag() {
                 </button>
               </div>
             </div>
-            <p className="text-sm text-gray-700 leading-relaxed mb-6">{FEEDBACK[selected]}</p>
-            <button
-              onClick={() => navigate('/')}
-              className="block w-full bg-blue-600 text-white rounded-2xl py-4 text-base font-bold border-none cursor-pointer active:bg-blue-800"
-            >
-              Terug naar home
-            </button>
+            <p className="text-sm text-gray-700 leading-relaxed mb-6">{current.feedback[selected]}</p>
+            {step < EXERCISES.length - 1 ? (
+              <button
+                onClick={() => {
+                  setShowPopup(false);
+                  setSelected(null);
+                  setStep(step + 1);
+                }}
+                className="block w-full bg-blue-600 text-white rounded-2xl py-4 text-base font-bold border-none cursor-pointer active:bg-blue-800"
+              >
+                Volgende vraag
+              </button>
+            ) : (
+              <button
+                onClick={() => navigate('/')}
+                className="block w-full bg-blue-600 text-white rounded-2xl py-4 text-base font-bold border-none cursor-pointer active:bg-blue-800"
+              >
+                Terug naar home
+              </button>
+            )}
           </div>
         </div>
       )}
