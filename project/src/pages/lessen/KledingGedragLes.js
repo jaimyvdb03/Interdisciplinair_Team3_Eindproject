@@ -11,6 +11,7 @@ function AudioBtn({ label }) {
   );
 }
 
+
 function renderStep(s, tc) {
   if (s.type === 'intro') {
     return (
@@ -24,11 +25,17 @@ function renderStep(s, tc) {
         </div>
         <p className="text-sm text-gray-700 leading-relaxed mb-3">{s.body1}</p>
         <p className="text-sm text-gray-700 leading-relaxed mb-4">{s.body2}</p>
+        {/* Visuals for intro (optional) */}
+        <div className="flex gap-3 justify-center mt-4">
+          <img src="/images/kleding&gedrag/vraag1/office_suit.png" alt="Net pak" className="w-20 h-20 object-contain rounded-xl border" />
+          <img src="/images/kleding&gedrag/vraag1/casual.png" alt="Casual kleding" className="w-20 h-20 object-contain rounded-xl border" />
+          <img src="/images/kleding&gedrag/vraag1/sportswear.png" alt="Sportkleding" className="w-20 h-20 object-contain rounded-xl border" />
+        </div>
       </div>
     );
   }
 
-  if (s.type === 'list') {
+  if (s.type === 'list' && s.title.toLowerCase().includes('kleding')) {
     return (
       <div className="bg-white rounded-2xl p-4 shadow-sm">
         <div className="flex items-center justify-between mb-3">
@@ -39,6 +46,39 @@ function renderStep(s, tc) {
           <AudioBtn label={tc.listen} />
         </div>
         <p className="text-sm text-gray-700 leading-relaxed mb-3">{s.body}</p>
+        <div className="flex gap-3 justify-center mb-4">
+          <img src="/images/kleding&gedrag/vraag1/office_suit.png" alt="Net pak" className="w-20 h-20 object-contain rounded-xl border" />
+          <img src="/images/kleding&gedrag/vraag1/casual.png" alt="Casual kleding" className="w-20 h-20 object-contain rounded-xl border" />
+          <img src="/images/kleding&gedrag/vraag1/sportswear.png" alt="Sportkleding" className="w-20 h-20 object-contain rounded-xl border" />
+        </div>
+        <div className="space-y-2">
+          {s.items.map(({ icon, label }) => (
+            <div key={label} className="flex items-center gap-3 bg-gray-50 rounded-xl px-3 py-2">
+              <span className="text-lg">{icon}</span>
+              <span className="text-sm text-gray-800">{label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  if (s.type === 'list' && s.title.toLowerCase().includes('gedrag')) {
+    return (
+      <div className="bg-white rounded-2xl p-4 shadow-sm">
+        <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center gap-2">
+            <span className="text-xl">{s.icon}</span>
+            <h2 className="text-[16px] font-bold text-gray-900">{s.title}</h2>
+          </div>
+          <AudioBtn label={tc.listen} />
+        </div>
+        <p className="text-sm text-gray-700 leading-relaxed mb-3">{s.body}</p>
+        <div className="flex gap-3 justify-center mb-4">
+          <img src="/images/kleding&gedrag/vraag3/upright.png" alt="Rechtop houding" className="w-20 h-20 object-contain rounded-xl border" />
+          <img src="/images/kleding&gedrag/vraag3/slouch.png" alt="Onderuit houding" className="w-20 h-20 object-contain rounded-xl border" />
+          <img src="/images/kleding&gedrag/vraag3/arms_crossed.png" alt="Armen over elkaar" className="w-20 h-20 object-contain rounded-xl border" />
+        </div>
         <div className="space-y-2">
           {s.items.map(({ icon, label }) => (
             <div key={label} className="flex items-center gap-3 bg-gray-50 rounded-xl px-3 py-2">
