@@ -5,6 +5,7 @@ import LessenOverzicht from './pages/LessenOverzicht';
 import OefeningenOverzicht from './pages/OefeningenOverzicht';
 import CvMakenLes from './pages/lessen/CvMakenLes';
 import SollicitatiebriefLes from './pages/lessen/SollicitatiebriefLes';
+import KledingGedragLes from './pages/lessen/KledingGedragLes';
 import CvMaken from './pages/exercises/CvMaken';
 import Sollicitatiebrief from './pages/exercises/Sollicitatiebrief';
 import KledingGedrag from './pages/exercises/KledingGedrag';
@@ -21,6 +22,7 @@ export default function App() {
         <Route path="/lessen"                         element={<LessenOverzicht />} />
         <Route path="/lessen/cv-maken"                element={<CvMakenLes />} />
         <Route path="/lessen/sollicitatiebrief"       element={<SollicitatiebriefLes />} />
+        <Route path="/lessen/kleding-gedrag"          element={<KledingGedragLes />} />
         <Route path="/oefeningen"                     element={<OefeningenOverzicht />} />
         <Route path="/oefeningen/cv-maken"            element={<CvMaken />} />
         <Route path="/oefeningen/sollicitatiebrief"   element={<Sollicitatiebrief />} />
