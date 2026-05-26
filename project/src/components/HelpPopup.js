@@ -42,7 +42,7 @@ function Visual1({ t }) {
           ))}
         </div>
       </div>
-      <p className="text-[9px] text-red-500 font-semibold text-center mt-1.5">↑ Klik op een optie</p>
+      <p className="text-[9px] text-red-500 font-semibold text-center mt-1.5">{t.home.help.visualLabels.v1}</p>
     </div>
   );
 }
@@ -61,7 +61,7 @@ function Visual2({ t }) {
           <p className="text-[9px] opacity-75">{t.home.progressSub(2, 11)}</p>
         </div>
       </div>
-      <p className="text-[9px] text-red-500 font-semibold text-center mt-1.5">↑ Jouw voortgang</p>
+      <p className="text-[9px] text-red-500 font-semibold text-center mt-1.5">{t.home.help.visualLabels.v2}</p>
     </div>
   );
 }
@@ -85,14 +85,14 @@ function Visual3({ t }) {
           Een CV is een overzicht van jezelf...
         </p>
       </div>
-      <p className="text-[9px] text-red-500 font-semibold">← Klik hier om te luisteren</p>
+      <p className="text-[9px] text-red-500 font-semibold">{t.home.help.visualLabels.v3listen}</p>
       {/* Rood kader om volgende-knop */}
       <div className="border-[2.5px] border-red-500 rounded-xl overflow-hidden">
         <div className="bg-blue-600 py-2 text-center text-[10px] font-bold text-white">
           {t.common.next}
         </div>
       </div>
-      <p className="text-[9px] text-red-500 font-semibold">↑ Klik hier voor het volgende deel</p>
+      <p className="text-[9px] text-red-500 font-semibold">{t.home.help.visualLabels.v3next}</p>
     </div>
   );
 }
@@ -119,14 +119,14 @@ function Visual4({ t }) {
           </div>
         ))}
       </div>
-      <p className="text-[9px] text-red-500 font-semibold">↑ Kies een antwoord</p>
+      <p className="text-[9px] text-red-500 font-semibold">{t.home.help.visualLabels.v4choose}</p>
       {/* Controleren knop */}
       <div className="border-[2.5px] border-red-500 rounded-xl overflow-hidden">
         <div className="bg-blue-600 py-1.5 text-center text-[10px] font-bold text-white">
           {t.common.check}
         </div>
       </div>
-      <p className="text-[9px] text-red-500 font-semibold">↑ Klik hier om te controleren</p>
+      <p className="text-[9px] text-red-500 font-semibold">{t.home.help.visualLabels.v4check}</p>
     </div>
   );
 }
@@ -154,46 +154,43 @@ function Visual5({ t }) {
           </div>
         </div>
       </div>
-      <p className="text-[9px] text-red-500 font-semibold">↑ Klik hier voor hulp</p>
+      <p className="text-[9px] text-red-500 font-semibold">{t.home.help.visualLabels.v5}</p>
     </div>
   );
 }
 
 /** Step 6 – video les */
-function Visual6() {
+function Visual6({ t }) {
   return (
-    <div className="bg-gray-100 rounded-2xl p-3 space-y-2">
-      {/* Video player mockup */}
+    <div className="bg-gray-100 rounded-2xl p-3 space-y-1.5">
+      {/* Video kaart met rood kader */}
       <div className="border-[2.5px] border-red-500 rounded-xl overflow-hidden">
-        <div className="bg-gray-800 rounded-xl flex flex-col items-center justify-center py-5 relative">
-          <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mb-2">
-            <span className="text-white text-xl ml-0.5">▶</span>
+        <div className="bg-white px-3 py-2.5 flex items-center gap-2.5">
+          <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center text-base shrink-0">🎤</div>
+          <div className="flex-1 min-w-0">
+            <div className="h-2 bg-gray-300 rounded w-3/4 mb-1" />
+            <div className="h-1.5 bg-gray-200 rounded w-1/3" />
           </div>
-          <p className="text-white text-[10px] font-semibold opacity-80">Sollicitatiegesprek uitleg</p>
-          {/* Progress bar */}
-          <div className="absolute bottom-2 left-3 right-3">
-            <div className="h-1 bg-white/20 rounded-full overflow-hidden">
-              <div className="h-full bg-white rounded-full w-1/3" />
-            </div>
-          </div>
+          <span className="text-gray-300 text-base">›</span>
         </div>
       </div>
-      <p className="text-[9px] text-red-500 font-semibold">↑ Klik op een video om hem te bekijken</p>
-      {/* Lijst van video's */}
-      <div className="space-y-1.5">
-        {['Video 1', 'Video 2'].map((v) => (
-          <div key={v} className="bg-white rounded-xl px-3 py-2 flex items-center gap-2.5 shadow-sm">
-            <div className="w-7 h-7 bg-blue-100 rounded-lg flex items-center justify-center text-sm shrink-0">▶️</div>
-            <div className="h-2 bg-gray-200 rounded flex-1" />
+      <p className="text-[9px] text-red-500 font-semibold">{t.home.help.visualLabels.v6}</p>
+      {/* Overige kaarten vaag */}
+      {[0, 1].map((i) => (
+        <div key={i} className="bg-white/60 rounded-xl px-3 py-2.5 flex items-center gap-2.5">
+          <div className="w-8 h-8 rounded-lg bg-gray-200 shrink-0" />
+          <div className="flex-1">
+            <div className="h-2 bg-gray-200 rounded w-2/3 mb-1" />
+            <div className="h-1.5 bg-gray-100 rounded w-1/4" />
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
   );
 }
 
 /** Step 7 – AI sollicitatiegesprek */
-function Visual7() {
+function Visual7({ t }) {
   return (
     <div className="bg-gray-100 rounded-2xl p-3 space-y-2">
       {/* Intro kaart met Sanne */}
@@ -219,7 +216,7 @@ function Visual7() {
           <span className="text-white text-[11px] font-bold">Start het gesprek</span>
         </div>
       </div>
-      <p className="text-[9px] text-red-500 font-semibold">↑ Klik hier om te beginnen</p>
+      <p className="text-[9px] text-red-500 font-semibold">{t.home.help.visualLabels.v7}</p>
     </div>
   );
 }

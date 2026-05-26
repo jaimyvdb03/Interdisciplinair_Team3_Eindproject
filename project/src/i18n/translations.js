@@ -165,6 +165,10 @@ export const translations = {
       eduTitle:    'Gevolgde studie, opleidingsinstituut, plaats',
       eduDates:    'Begindatum – Einddatum',
     },
+    videoLessen: {
+      video1Title: 'Sollicitatiegesprek uitleg',
+      video1Desc:  'Bekijk deze video om te leren hoe een sollicitatiegesprek werkt.',
+    },
   },
 
   // ─── English ──────────────────────────────────────────────────────────────
@@ -331,6 +335,10 @@ export const translations = {
       education:   'Education',
       eduTitle:    'Study, educational institute, city',
       eduDates:    'Start date – End date',
+    },
+    videoLessen: {
+      video1Title: 'Job interview explained',
+      video1Desc:  'Watch this video to learn how a job interview works.',
     },
   },
 
@@ -499,6 +507,10 @@ export const translations = {
       eduTitle:    'Carrera, centro educativo, ciudad',
       eduDates:    'Fecha inicio – Fecha fin',
     },
+    videoLessen: {
+      video1Title: 'Explicación de la entrevista de trabajo',
+      video1Desc:  'Mira este vídeo para aprender cómo funciona una entrevista de trabajo.',
+    },
   },
 
   // ─── Türkçe ───────────────────────────────────────────────────────────────
@@ -666,6 +678,10 @@ export const translations = {
       eduTitle:    'Okul, eğitim kurumu, şehir',
       eduDates:    'Başlangıç – Bitiş tarihi',
     },
+    videoLessen: {
+      video1Title: 'İş görüşmesi açıklaması',
+      video1Desc:  'Bir iş görüşmesinin nasıl işlediğini öğrenmek için bu videoyu izleyin.',
+    },
   },
 
   // ─── العربية ──────────────────────────────────────────────────────────────
@@ -832,6 +848,10 @@ export const translations = {
       education:   'التعليم',
       eduTitle:    'الدراسة، المؤسسة التعليمية، المدينة',
       eduDates:    'تاريخ البدء – تاريخ الانتهاء',
+    },
+    videoLessen: {
+      video1Title: 'شرح مقابلة العمل',
+      video1Desc:  'شاهد هذا الفيديو لتتعلم كيف تسير مقابلة العمل.',
     },
   },
 };
