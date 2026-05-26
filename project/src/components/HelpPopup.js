@@ -42,7 +42,7 @@ function Visual1({ t }) {
           ))}
         </div>
       </div>
-      <p className="text-[9px] text-red-500 font-semibold text-center mt-1.5">↑ Klikop een optie</p>
+      <p className="text-[9px] text-red-500 font-semibold text-center mt-1.5">↑ Klik op een optie</p>
     </div>
   );
 }
@@ -85,14 +85,14 @@ function Visual3({ t }) {
           Een CV is een overzicht van jezelf...
         </p>
       </div>
-      <p className="text-[9px] text-red-500 font-semibold">← Klikhier om te luisteren</p>
+      <p className="text-[9px] text-red-500 font-semibold">← Klik hier om te luisteren</p>
       {/* Rood kader om volgende-knop */}
       <div className="border-[2.5px] border-red-500 rounded-xl overflow-hidden">
         <div className="bg-blue-600 py-2 text-center text-[10px] font-bold text-white">
           {t.common.next}
         </div>
       </div>
-      <p className="text-[9px] text-red-500 font-semibold">↑ Klikhier voor het volgende deel</p>
+      <p className="text-[9px] text-red-500 font-semibold">↑ Klik hier voor het volgende deel</p>
     </div>
   );
 }
@@ -126,7 +126,7 @@ function Visual4({ t }) {
           {t.common.check}
         </div>
       </div>
-      <p className="text-[9px] text-red-500 font-semibold">↑ Klikhier om te controleren</p>
+      <p className="text-[9px] text-red-500 font-semibold">↑ Klik hier om te controleren</p>
     </div>
   );
 }
@@ -154,12 +154,12 @@ function Visual5({ t }) {
           </div>
         </div>
       </div>
-      <p className="text-[9px] text-red-500 font-semibold">↑ Klikhier voor hulp</p>
+      <p className="text-[9px] text-red-500 font-semibold">↑ Klik hier voor hulp</p>
     </div>
   );
 }
 
-/** Step 5 – video les */
+/** Step 6 – video les */
 function Visual6() {
   return (
     <div className="bg-gray-100 rounded-2xl p-3 space-y-2">
@@ -192,7 +192,7 @@ function Visual6() {
   );
 }
 
-/** Step 6 – AI sollicitatiegesprek */
+/** Step 7 – AI sollicitatiegesprek */
 function Visual7() {
   return (
     <div className="bg-gray-100 rounded-2xl p-3 space-y-2">

@@ -43,10 +43,10 @@ export default function Home() {
           <h1 className="text-[22px] font-bold text-gray-900 flex-1">{t.home.welcome}</h1>
           <button
             onClick={() => setShowHelp(true)}
-            className="w-8 h-8 flex items-center justify-center rounded-full bg-white border border-gray-200 text-gray-500 text-sm font-bold shadow-sm cursor-pointer shrink-0"
+            className="flex items-center gap-1.5 bg-orange-50 border border-orange-200 text-orange-700 rounded-xl px-3 py-1.5 text-xs font-bold shadow-sm cursor-pointer shrink-0 whitespace-nowrap"
             aria-label="Uitleg"
           >
-            ?
+            ❓ {t.home.helpBtn}
           </button>
           <button
             onClick={() => setShowLangPicker(true)}
