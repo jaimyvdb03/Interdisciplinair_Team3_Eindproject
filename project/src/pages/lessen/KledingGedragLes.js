@@ -24,12 +24,18 @@ function renderStep(s, tc) {
           <AudioBtn label={tc.listen} />
         </div>
         <p className="text-sm text-gray-700 leading-relaxed mb-3">{s.body1}</p>
-        <p className="text-sm text-gray-700 leading-relaxed mb-4">{s.body2}</p>
+        <p className="text-sm text-gray-700 leading-relaxed mb-3">{s.body2}</p>
+        <p className="text-sm text-gray-700 leading-relaxed mb-3">
+          Het is belangrijk om kleding te dragen die past bij het bedrijf waar je solliciteert. Denk na over wat voor indruk je wilt maken. Nette kleding laat zien dat je serieus bent. Maar het is ook belangrijk dat je je prettig voelt in wat je draagt. Zorg dat je kleding schoon en gestreken is. Vermijd te opvallende kleuren of drukke prints, tenzij dat past bij het bedrijf.
+        </p>
+        <p className="text-sm text-gray-700 leading-relaxed mb-4">
+          Naast kleding is je houding belangrijk. Zit rechtop, maak oogcontact en glimlach. Dit laat zien dat je geïnteresseerd en gemotiveerd bent. In deze les leer je meer over wat je kunt doen om een goede indruk te maken tijdens een sollicitatiegesprek.
+        </p>
         {/* Visuals for intro (optional) */}
-        <div className="flex gap-3 justify-center mt-4">
-          <img src="/images/kleding&gedrag/vraag1/office_suit.png" alt="Net pak" className="w-20 h-20 object-contain rounded-xl border" />
-          <img src="/images/kleding&gedrag/vraag1/casual.png" alt="Casual kleding" className="w-20 h-20 object-contain rounded-xl border" />
-          <img src="/images/kleding&gedrag/vraag1/sportswear.png" alt="Sportkleding" className="w-20 h-20 object-contain rounded-xl border" />
+        <div className="flex gap-6 justify-center mt-4">
+          <img src="/images/kleding&gedrag/vraag1/office_suit.png" alt="Net pak" className="w-32 h-32 object-contain rounded-xl border" />
+          <img src="/images/kleding&gedrag/vraag1/casual.png" alt="Casual kleding" className="w-32 h-32 object-contain rounded-xl border" />
+          <img src="/images/kleding&gedrag/vraag1/sportswear.png" alt="Sportkleding" className="w-32 h-32 object-contain rounded-xl border" />
         </div>
       </div>
     );
@@ -46,10 +52,16 @@ function renderStep(s, tc) {
           <AudioBtn label={tc.listen} />
         </div>
         <p className="text-sm text-gray-700 leading-relaxed mb-3">{s.body}</p>
-        <div className="flex gap-3 justify-center mb-4">
-          <img src="/images/kleding&gedrag/vraag1/office_suit.png" alt="Net pak" className="w-20 h-20 object-contain rounded-xl border" />
-          <img src="/images/kleding&gedrag/vraag1/casual.png" alt="Casual kleding" className="w-20 h-20 object-contain rounded-xl border" />
-          <img src="/images/kleding&gedrag/vraag1/sportswear.png" alt="Sportkleding" className="w-20 h-20 object-contain rounded-xl border" />
+        <p className="text-sm text-gray-700 leading-relaxed mb-3">
+          Kies kleding die past bij het soort bedrijf. Bij een bank of kantoor draag je vaak een net pak of nette blouse. Bij een creatief bedrijf mag het soms wat losser. Vraag eventueel aan iemand die er werkt wat gebruikelijk is. Zorg altijd dat je kleding schoon is en goed past. Te strakke of te losse kleding kan onprofessioneel overkomen.
+        </p>
+        <p className="text-sm text-gray-700 leading-relaxed mb-3">
+          Accessoires mogen, maar houd het rustig. Te veel sieraden of een pet/hoed kun je beter thuislaten. Draag schoenen die netjes zijn en bij je outfit passen. Denk ook aan je haar: verzorgd haar maakt een goede indruk.
+        </p>
+        <div className="flex gap-6 justify-center mb-4">
+          <img src="/images/kleding&gedrag/vraag1/office_suit.png" alt="Net pak" className="w-32 h-32 object-contain rounded-xl border" />
+          <img src="/images/kleding&gedrag/vraag1/casual.png" alt="Casual kleding" className="w-32 h-32 object-contain rounded-xl border" />
+          <img src="/images/kleding&gedrag/vraag1/sportswear.png" alt="Sportkleding" className="w-32 h-32 object-contain rounded-xl border" />
         </div>
         <div className="space-y-2">
           {s.items.map(({ icon, label }) => (
@@ -74,10 +86,16 @@ function renderStep(s, tc) {
           <AudioBtn label={tc.listen} />
         </div>
         <p className="text-sm text-gray-700 leading-relaxed mb-3">{s.body}</p>
-        <div className="flex gap-3 justify-center mb-4">
-          <img src="/images/kleding&gedrag/vraag3/upright.png" alt="Rechtop houding" className="w-20 h-20 object-contain rounded-xl border" />
-          <img src="/images/kleding&gedrag/vraag3/slouch.png" alt="Onderuit houding" className="w-20 h-20 object-contain rounded-xl border" />
-          <img src="/images/kleding&gedrag/vraag3/arms_crossed.png" alt="Armen over elkaar" className="w-20 h-20 object-contain rounded-xl border" />
+        <p className="text-sm text-gray-700 leading-relaxed mb-3">
+          Je gedrag tijdens een sollicitatiegesprek zegt veel over jou. Kom op tijd, geef een stevige handdruk en kijk de ander aan. Probeer rustig te blijven, ook als je zenuwachtig bent. Luister goed naar de vragen en denk even na voor je antwoordt. Wees eerlijk en positief over jezelf.
+        </p>
+        <p className="text-sm text-gray-700 leading-relaxed mb-3">
+          Let op je houding: rechtop zitten, niet wiebelen of onderuit zakken. Armen over elkaar kan gesloten overkomen, dus houd je handen ontspannen op tafel of in je schoot. Glimlach af en toe, dat maakt je vriendelijk en toegankelijk.
+        </p>
+        <div className="flex gap-6 justify-center mb-4">
+          <img src="/images/kleding&gedrag/vraag3/upright.png" alt="Rechtop houding" className="w-32 h-32 object-contain rounded-xl border" />
+          <img src="/images/kleding&gedrag/vraag3/slouch.png" alt="Onderuit houding" className="w-32 h-32 object-contain rounded-xl border" />
+          <img src="/images/kleding&gedrag/vraag3/arms_crossed.png" alt="Armen over elkaar" className="w-32 h-32 object-contain rounded-xl border" />
         </div>
         <div className="space-y-2">
           {s.items.map(({ icon, label }) => (
@@ -190,7 +208,7 @@ export default function KledingGedragLes() {
           <div className="mt-4">
             <button
               onClick={goNext}
-              className="block w-full bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white border-none rounded-2xl py-4 text-base font-bold cursor-pointer transition-colors"
+              className="block w-full max-w-xs mx-auto bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white border-none rounded-2xl py-4 text-base font-bold cursor-pointer transition-colors"
             >
               {isLast ? t.common.practice : t.common.next}
             </button>
