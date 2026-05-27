@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { ICONS } from '../iconPaths';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../i18n/translations';
+import HelpPopup from '../components/HelpPopup';
 
 const PROGRESS  = 40;
 const COMPLETED = 2;
@@ -28,6 +29,7 @@ export default function Home() {
   const { lang, setLang } = useLanguage();
   const t = translations[lang];
   const [showLangPicker, setShowLangPicker] = useState(false);
+  const [showHelp, setShowHelp] = useState(false);
 
   const MENU = t.home.menu.map((item, i) => ({ ...MENU_STATIC[i], ...item }));
   const currentLang = LANGUAGES.find(l => l.code === lang) || LANGUAGES[0];
@@ -37,8 +39,15 @@ export default function Home() {
       <div className="w-full pb-10 sm:px-10 sm:pb-16">
 
         {/* Header */}
-        <div className="flex justify-between items-center px-5 pt-6 pb-1 sm:px-0 sm:pt-8">
-          <h1 className="text-[22px] font-bold text-gray-900">{t.home.welcome}</h1>
+        <div className="flex items-center gap-2 px-5 pt-6 pb-1 sm:px-0 sm:pt-8">
+          <h1 className="text-[22px] font-bold text-gray-900 flex-1">{t.home.welcome}</h1>
+          <button
+            onClick={() => setShowHelp(true)}
+            className="flex items-center gap-1.5 bg-orange-50 border border-orange-200 text-orange-700 rounded-xl px-3 py-1.5 text-xs font-bold shadow-sm cursor-pointer shrink-0 whitespace-nowrap"
+            aria-label="Uitleg"
+          >
+            ❓ {t.home.helpBtn}
+          </button>
           <button
             onClick={() => setShowLangPicker(true)}
             className="flex items-center gap-1.5 bg-white border border-gray-200 rounded-xl px-3 py-1.5 text-xs font-semibold text-gray-700 shadow-sm whitespace-nowrap"
@@ -88,6 +97,9 @@ export default function Home() {
         </div>
 
       </div>
+
+      {/* Help popup */}
+      {showHelp && <HelpPopup onClose={() => setShowHelp(false)} />}
 
       {/* Language picker popup */}
       {showLangPicker && (
