@@ -5,23 +5,17 @@ import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../i18n/translations';
 import HelpPopup from '../components/HelpPopup';
 
-const PROGRESS  = 40;
+const PROGRESS  = 40; //Verander later, nu hardcoded 
 const COMPLETED = 2;
 const TOTAL     = 11;
 
-const MENU_STATIC = [
-  { icon: ICONS.lessen,     iconBg: 'bg-red-50',     to: '/lessen'     },
-  { icon: ICONS.video,      iconBg: 'bg-blue-100',   to: '/video'      },
-  { icon: ICONS.oefeningen, iconBg: 'bg-purple-100', to: '/oefeningen' },
-  { icon: ICONS.hulp,       iconBg: 'bg-teal-100',   to: '/hulp'       },
-];
 
 const LANGUAGES = [
-  { code: 'nl', flagSrc: 'https://flagcdn.com/nl.svg', label: 'Nederlands' },
-  { code: 'es', flagSrc: 'https://flagcdn.com/es.svg', label: 'Español'    },
-  { code: 'en', flagSrc: 'https://flagcdn.com/gb.svg', label: 'English'    },
-  { code: 'tr', flagSrc: 'https://flagcdn.com/tr.svg', label: 'Türkçe'     },
-  { code: 'ar', flagSrc: 'https://flagcdn.com/sa.svg', label: 'العربية'    },
+  { id: 'nl', flagSrc: 'https://flagcdn.com/nl.svg', label: 'Nederlands' },
+  { id: 'es', flagSrc: 'https://flagcdn.com/es.svg', label: 'Español'    },
+  { id: 'en', flagSrc: 'https://flagcdn.com/gb.svg', label: 'English'    },
+  { id: 'tr', flagSrc: 'https://flagcdn.com/tr.svg', label: 'Türkçe'     },
+  { id: 'ar', flagSrc: 'https://flagcdn.com/sa.svg', label: 'العربية'    },
 ];
 
 export default function Home() {
@@ -31,8 +25,56 @@ export default function Home() {
   const [showLangPicker, setShowLangPicker] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
 
-  const MENU = t.home.menu.map((item, i) => ({ ...MENU_STATIC[i], ...item }));
-  const currentLang = LANGUAGES.find(l => l.code === lang) || LANGUAGES[0];
+  const MENU = [
+    { icon: ICONS.lessen,     to: '/lessen',     label: t.home.menu[0].label, sub: t.home.menu[0].sub },
+    { icon: ICONS.video,      to: '/video',       label: t.home.menu[1].label, sub: t.home.menu[1].sub },
+    { icon: ICONS.oefeningen, to: '/oefeningen',  label: t.home.menu[2].label, sub: t.home.menu[2].sub },
+    { icon: ICONS.hulp,       to: '/hulp',        label: t.home.menu[3].label, sub: t.home.menu[3].sub },
+  ];
+
+  let currentLang = LANGUAGES[0];
+  LANGUAGES.forEach(language => {
+    if (language.id === lang) currentLang = language;
+  });
+
+  const menuCards = [];
+  for (let i = 0; i < MENU.length; i++) {
+    const item = MENU[i];
+    menuCards[i] = (
+      <button
+        key={item.label}
+        onClick={() => navigate(item.to)}
+        className="flex items-center gap-3.5 bg-white rounded-2xl px-3.5 py-3.5 sm:px-5 sm:py-4 cursor-pointer text-left w-full shadow-sm border-none active:scale-[0.98] transition-transform"
+      >
+        <img src={item.icon} alt={item.label + ' icoon'} className="w-12 h-12 object-contain shrink-0" />
+        <div className="flex-1 min-w-0">
+          <p className="text-[15px] font-bold text-gray-900 leading-tight">{item.label}</p>
+          <p className="text-xs text-gray-400 mt-0.5 leading-tight">{item.sub}</p>
+        </div>
+        <span className="text-xl text-gray-300 shrink-0">›</span>
+      </button>
+    );
+  }
+
+  const languageButtons = [];
+  for (let i = 0; i < LANGUAGES.length; i++) {
+    const language = LANGUAGES[i];
+    languageButtons[i] = (
+      <button
+        key={language.id}
+        onClick={() => { setLang(language.id); setShowLangPicker(false); }}
+        className={`flex items-center gap-4 rounded-2xl px-5 py-3.5 w-full border-2 cursor-pointer transition-colors shadow-sm
+          ${lang === language.id
+            ? 'bg-blue-50 border-blue-400'
+            : 'bg-white hover:bg-gray-50 active:bg-gray-100 border-transparent'
+          }`}
+      >
+        <img src={language.flagSrc} alt={language.label} className="w-10 h-10 rounded-full object-cover shrink-0 shadow-sm" />
+        <span className="text-[16px] font-semibold text-gray-900">{language.label}</span>
+        {lang === language.id && <span className="ml-auto text-blue-500 text-lg">✓</span>}
+      </button>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -60,22 +102,7 @@ export default function Home() {
 
         {/* Menu cards - responsive grid */}
         <div className="grid grid-cols-1 gap-2.5 px-4 pb-4 sm:px-0 sm:grid-cols-2">
-          {MENU.map((item) => (
-            <button
-              key={item.label}
-              onClick={() => navigate(item.to)}
-              className="flex items-center gap-3.5 bg-white rounded-2xl px-3.5 py-3.5 sm:px-5 sm:py-4 cursor-pointer text-left w-full shadow-sm border-none active:scale-[0.98] transition-transform"
-            >
-              <div className={`w-12 h-12 rounded-[13px] flex items-center justify-center shrink-0 ${item.iconBg}`}>
-                <img src={item.icon} alt={item.label + ' icoon'} className="w-8 h-8 object-contain" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-[15px] font-bold text-gray-900 leading-tight">{item.label}</p>
-                <p className="text-xs text-gray-400 mt-0.5 leading-tight">{item.sub}</p>
-              </div>
-              <span className="text-xl text-gray-300 shrink-0">›</span>
-            </button>
-          ))}
+          {menuCards}
         </div>
 
         {/* Progress card and CTA */}
@@ -120,31 +147,13 @@ export default function Home() {
                 ‹
               </button>
               <button className="flex items-center gap-1.5 bg-white rounded-full px-4 py-2 text-sm text-gray-500 border-none cursor-pointer shadow-sm whitespace-nowrap">
-                🔊 Luister
+                {t.common.listen}
               </button>
             </div>
 
             {/* Language options */}
             <div className="flex flex-col gap-2.5">
-              {LANGUAGES.map((l) => (
-                <button
-                  key={l.code}
-                  onClick={() => { setLang(l.code); setShowLangPicker(false); }}
-                  className={`flex items-center gap-4 rounded-2xl px-5 py-3.5 w-full border-2 cursor-pointer transition-colors shadow-sm
-                    ${lang === l.code
-                      ? 'bg-blue-50 border-blue-400'
-                      : 'bg-white hover:bg-gray-50 active:bg-gray-100 border-transparent'
-                    }`}
-                >
-                  <img
-                    src={l.flagSrc}
-                    alt={l.label}
-                    className="w-10 h-10 rounded-full object-cover shrink-0 shadow-sm"
-                  />
-                  <span className="text-[16px] font-semibold text-gray-900">{l.label}</span>
-                  {lang === l.code && <span className="ml-auto text-blue-500 text-lg">✓</span>}
-                </button>
-              ))}
+              {languageButtons}
             </div>
           </div>
         </div>

@@ -4,16 +4,13 @@ import { translations } from '../i18n/translations';
 
 // ── Step dots ──────────────────────────────────────────────────────────────
 function StepDots({ current, total }) {
+  const dots = [];
+  for (let i = 0; i < total; i++) {
+    dots[i] = <div key={i} className={`rounded-full transition-all duration-200 ${i === current ? 'w-4 h-2 bg-blue-500' : 'w-2 h-2 bg-gray-300'}`} />;
+  }
   return (
     <div className="flex gap-1.5 items-center justify-center">
-      {Array.from({ length: total }).map((_, i) => (
-        <div
-          key={i}
-          className={`rounded-full transition-all duration-200 ${
-            i === current ? 'w-4 h-2 bg-blue-500' : 'w-2 h-2 bg-gray-300'
-          }`}
-        />
-      ))}
+      {dots}
     </div>
   );
 }
@@ -28,18 +25,23 @@ function Visual1({ t }) {
     { label: t.home.menu[2].label, bg: 'bg-purple-100', emoji: '🧩' },
     { label: t.home.menu[3].label, bg: 'bg-teal-100',   emoji: '💬' },
   ];
+  const menuCards = [];
+  for (let i = 0; i < items.length; i++) {
+    const item = items[i];
+    menuCards[i] = (
+      <div key={item.label} className="bg-white rounded-xl px-2.5 py-2 flex items-center gap-2 shadow-sm">
+        <div className={`w-7 h-7 rounded-lg ${item.bg} flex items-center justify-center text-sm shrink-0`}>
+          {item.emoji}
+        </div>
+        <span className="text-[10px] font-bold text-gray-700 leading-tight">{item.label}</span>
+      </div>
+    );
+  }
   return (
     <div className="bg-gray-100 rounded-2xl p-3">
       <div className="border-[2.5px] border-red-500 rounded-xl p-2">
         <div className="grid grid-cols-2 gap-2">
-          {items.map(({ label, bg, emoji }) => (
-            <div key={label} className="bg-white rounded-xl px-2.5 py-2 flex items-center gap-2 shadow-sm">
-              <div className={`w-7 h-7 rounded-lg ${bg} flex items-center justify-center text-sm shrink-0`}>
-                {emoji}
-              </div>
-              <span className="text-[10px] font-bold text-gray-700 leading-tight">{label}</span>
-            </div>
-          ))}
+          {menuCards}
         </div>
       </div>
       <p className="text-[9px] text-red-500 font-semibold text-center mt-1.5">{t.home.help.visualLabels.v1}</p>
@@ -73,7 +75,7 @@ function Visual3({ t }) {
       {/* Les kaart */}
       <div className="bg-white rounded-xl p-3 shadow-sm">
         <div className="flex justify-between items-start gap-2 mb-2">
-          <p className="text-[10px] font-bold text-gray-800 flex-1">Wat is een CV?</p>
+          <p className="text-[10px] font-bold text-gray-800 flex-1">{t.cvLes.steps[0].title}</p>
           {/* Rood kader om luister-knop */}
           <div className="border-[2.5px] border-red-500 rounded-full p-0.5">
             <div className="bg-gray-100 rounded-full px-2 py-0.5 text-[9px] text-gray-500 whitespace-nowrap">
@@ -82,7 +84,7 @@ function Visual3({ t }) {
           </div>
         </div>
         <p className="text-[9px] text-gray-500 leading-relaxed">
-          Een CV is een overzicht van jezelf...
+          {t.cvLes.steps[0].body1.slice(0, 50)}…
         </p>
       </div>
       <p className="text-[9px] text-red-500 font-semibold">{t.home.help.visualLabels.v3listen}</p>
@@ -103,21 +105,26 @@ function Visual4({ t }) {
     <div className="bg-gray-100 rounded-2xl p-3 space-y-2">
       {/* Vraag */}
       <div className="bg-white rounded-xl p-2.5 shadow-sm">
-        <p className="text-[10px] font-bold text-gray-800">Wat is een CV?</p>
+        <p className="text-[10px] font-bold text-gray-800">{t.cvOef.question}</p>
       </div>
       {/* Rood kader om antwoord-opties */}
       <div className="border-[2.5px] border-red-500 rounded-xl p-1.5 space-y-1 bg-white/50">
-        {['A', 'B', 'C', 'D'].map((opt, i) => (
-          <div
-            key={opt}
-            className={`flex items-center gap-2 rounded-lg px-2.5 py-1.5 border ${
-              i === 0 ? 'bg-blue-50 border-blue-400' : 'bg-white border-gray-100'
-            }`}
-          >
-            <span className="text-[9px] font-bold text-gray-400 w-3">{opt}</span>
-            <div className={`h-1 rounded flex-1 ${i === 0 ? 'bg-blue-300' : 'bg-gray-200'}`} />
-          </div>
-        ))}
+        <div className="flex items-center gap-2 rounded-lg px-2.5 py-1.5 border bg-blue-50 border-blue-400">
+          <span className="text-[9px] font-bold text-gray-400 w-3">A</span>
+          <div className="h-1 rounded flex-1 bg-blue-300" />
+        </div>
+        <div className="flex items-center gap-2 rounded-lg px-2.5 py-1.5 border bg-white border-gray-100">
+          <span className="text-[9px] font-bold text-gray-400 w-3">B</span>
+          <div className="h-1 rounded flex-1 bg-gray-200" />
+        </div>
+        <div className="flex items-center gap-2 rounded-lg px-2.5 py-1.5 border bg-white border-gray-100">
+          <span className="text-[9px] font-bold text-gray-400 w-3">C</span>
+          <div className="h-1 rounded flex-1 bg-gray-200" />
+        </div>
+        <div className="flex items-center gap-2 rounded-lg px-2.5 py-1.5 border bg-white border-gray-100">
+          <span className="text-[9px] font-bold text-gray-400 w-3">D</span>
+          <div className="h-1 rounded flex-1 bg-gray-200" />
+        </div>
       </div>
       <p className="text-[9px] text-red-500 font-semibold">{t.home.help.visualLabels.v4choose}</p>
       {/* Controleren knop */}
@@ -136,12 +143,18 @@ function Visual5({ t }) {
   return (
     <div className="bg-gray-100 rounded-2xl p-3 space-y-1.5">
       {/* Andere kaarten vaag op de achtergrond */}
-      {[0, 1, 2].map((i) => (
-        <div key={i} className="bg-white/60 rounded-xl px-3 py-2 flex items-center gap-2">
-          <div className="w-5 h-5 rounded-md bg-gray-200 shrink-0" />
-          <div className="h-2 bg-gray-200 rounded flex-1" />
-        </div>
-      ))}
+      <div className="bg-white/60 rounded-xl px-3 py-2 flex items-center gap-2">
+        <div className="w-5 h-5 rounded-md bg-gray-200 shrink-0" />
+        <div className="h-2 bg-gray-200 rounded flex-1" />
+      </div>
+      <div className="bg-white/60 rounded-xl px-3 py-2 flex items-center gap-2">
+        <div className="w-5 h-5 rounded-md bg-gray-200 shrink-0" />
+        <div className="h-2 bg-gray-200 rounded flex-1" />
+      </div>
+      <div className="bg-white/60 rounded-xl px-3 py-2 flex items-center gap-2">
+        <div className="w-5 h-5 rounded-md bg-gray-200 shrink-0" />
+        <div className="h-2 bg-gray-200 rounded flex-1" />
+      </div>
       {/* Rood kader om hulp-kaart */}
       <div className="border-[2.5px] border-red-500 rounded-xl overflow-hidden mt-1">
         <div className="bg-white px-3 py-2.5 flex items-center gap-2.5">
@@ -176,44 +189,51 @@ function Visual6({ t }) {
       </div>
       <p className="text-[9px] text-red-500 font-semibold">{t.home.help.visualLabels.v6}</p>
       {/* Overige kaarten vaag */}
-      {[0, 1].map((i) => (
-        <div key={i} className="bg-white/60 rounded-xl px-3 py-2.5 flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-gray-200 shrink-0" />
-          <div className="flex-1">
-            <div className="h-2 bg-gray-200 rounded w-2/3 mb-1" />
-            <div className="h-1.5 bg-gray-100 rounded w-1/4" />
-          </div>
+      <div className="bg-white/60 rounded-xl px-3 py-2.5 flex items-center gap-2.5">
+        <div className="w-8 h-8 rounded-lg bg-gray-200 shrink-0" />
+        <div className="flex-1">
+          <div className="h-2 bg-gray-200 rounded w-2/3 mb-1" />
+          <div className="h-1.5 bg-gray-100 rounded w-1/4" />
         </div>
-      ))}
+      </div>
+      <div className="bg-white/60 rounded-xl px-3 py-2.5 flex items-center gap-2.5">
+        <div className="w-8 h-8 rounded-lg bg-gray-200 shrink-0" />
+        <div className="flex-1">
+          <div className="h-2 bg-gray-200 rounded w-2/3 mb-1" />
+          <div className="h-1.5 bg-gray-100 rounded w-1/4" />
+        </div>
+      </div>
     </div>
   );
 }
 
 /** Step 7 – AI sollicitatiegesprek */
 function Visual7({ t }) {
+  const stepRows = [];
+  for (let i = 0; i < t.home.help.visual7Steps.length; i++) {
+    stepRows[i] = (
+      <div key={i} className="flex items-start gap-1.5">
+        <span className="text-[9px] font-bold text-blue-600 shrink-0">{i + 1}.</span>
+        <span className="text-[9px] text-gray-600 leading-tight">{t.home.help.visual7Steps[i]}</span>
+      </div>
+    );
+  }
   return (
     <div className="bg-gray-100 rounded-2xl p-3 space-y-2">
       {/* Intro kaart met Sanne */}
       <div className="bg-white rounded-xl p-3 shadow-sm">
-        <p className="text-[10px] font-bold text-gray-900 mb-1.5">Sollicitatiegesprek bij Albert Heijn</p>
+        <p className="text-[10px] font-bold text-gray-900 mb-1.5">{t.home.help.visual7Title}</p>
         <div className="bg-gray-100 rounded-lg overflow-hidden mb-2 flex items-center justify-center h-14">
           <span className="text-3xl">👩‍💼</span>
         </div>
         {/* Genummerde stappen */}
-        <div className="space-y-1">
-          {['Klik op Start het gesprek.', 'Sanne begint met praten.', 'Geef antwoord op elke vraag.'].map((s, i) => (
-            <div key={i} className="flex items-start gap-1.5">
-              <span className="text-[9px] font-bold text-blue-600 shrink-0">{i + 1}.</span>
-              <span className="text-[9px] text-gray-600 leading-tight">{s}</span>
-            </div>
-          ))}
-        </div>
+        <div className="space-y-1">{stepRows}</div>
       </div>
       {/* Start knop met rood kader */}
       <div className="border-[2.5px] border-red-500 rounded-xl overflow-hidden">
         <div className="bg-blue-700 py-2 flex items-center justify-center gap-1.5">
           <span className="text-white text-sm">🎤</span>
-          <span className="text-white text-[11px] font-bold">Start het gesprek</span>
+          <span className="text-white text-[11px] font-bold">{t.home.help.visual7Btn}</span>
         </div>
       </div>
       <p className="text-[9px] text-red-500 font-semibold">{t.home.help.visualLabels.v7}</p>
@@ -269,7 +289,7 @@ export default function HelpPopup({ onClose }) {
         {/* Navigation */}
         <div className="flex items-center justify-between px-5 pb-5 gap-4">
           <button
-            onClick={() => setStep((s) => Math.max(0, s - 1))}
+            onClick={() => setStep(step - 1)}
             disabled={step === 0}
             className="w-10 h-10 rounded-full bg-gray-100 border-none flex items-center justify-center text-gray-600 cursor-pointer text-lg disabled:opacity-30 active:bg-gray-200 transition-colors shrink-0"
           >
@@ -287,7 +307,7 @@ export default function HelpPopup({ onClose }) {
             </button>
           ) : (
             <button
-              onClick={() => setStep((s) => Math.min(total - 1, s + 1))}
+              onClick={() => setStep(step + 1)}
               className="w-10 h-10 rounded-full bg-gray-100 border-none flex items-center justify-center text-gray-600 cursor-pointer text-lg active:bg-gray-200 transition-colors shrink-0"
             >
               ›
