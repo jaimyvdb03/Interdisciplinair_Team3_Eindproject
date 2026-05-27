@@ -67,7 +67,7 @@ export default function QuizPage({ title, backTo, question, options, feedback, c
         <div className="px-4 mt-6 sm:px-0">
           <button
             onClick={() => selected && setShowPopup(true)}
-            className={`block w-full rounded-2xl py-4 text-base font-bold text-white border-none transition-colors
+            className={`block w-full max-w-xs mx-auto rounded-2xl py-4 text-base font-bold text-white border-none transition-colors
               ${selected ? 'bg-blue-600 cursor-pointer active:bg-blue-800' : 'bg-blue-300 cursor-default'}`}
           >
             {tc.check}
@@ -101,7 +101,7 @@ export default function QuizPage({ title, backTo, question, options, feedback, c
             <p className="text-sm text-gray-700 leading-relaxed mb-6">{feedback[selected]}</p>
             <button
               onClick={() => navigate('/')}
-              className="block w-full bg-blue-600 text-white rounded-2xl py-4 text-base font-bold border-none cursor-pointer active:bg-blue-800"
+              className="block w-full max-w-xs mx-auto bg-blue-600 text-white rounded-2xl py-4 text-base font-bold border-none cursor-pointer active:bg-blue-800"
             >
               {tc.backHome}
             </button>

@@ -152,7 +152,7 @@ export default function CvMakenLes() {
           <div className="mt-4">
             <button
               onClick={goNext}
-              className="block w-full bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white border-none rounded-2xl py-4 text-base font-bold cursor-pointer transition-colors"
+              className="block w-full max-w-xs mx-auto bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white border-none rounded-2xl py-4 text-base font-bold cursor-pointer transition-colors"
             >
               {isLast ? t.common.practice : t.common.next}
             </button>

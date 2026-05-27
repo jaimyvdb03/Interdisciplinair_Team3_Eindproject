@@ -127,14 +127,14 @@ export default function KledingGedrag() {
             {step < kg.questions.length - 1 ? (
               <button
                 onClick={() => { setShowPopup(false); setSelected(null); setStep(step + 1); }}
-                className="block w-full bg-blue-600 text-white rounded-2xl py-4 text-base font-bold border-none cursor-pointer active:bg-blue-800"
+                className="block w-full max-w-xs mx-auto bg-blue-600 text-white rounded-2xl py-4 text-base font-bold border-none cursor-pointer active:bg-blue-800"
               >
                 {kg.nextQuestion}
               </button>
             ) : (
               <button
                 onClick={() => navigate('/')}
-                className="block w-full bg-blue-600 text-white rounded-2xl py-4 text-base font-bold border-none cursor-pointer active:bg-blue-800"
+                className="block w-full max-w-xs mx-auto bg-blue-600 text-white rounded-2xl py-4 text-base font-bold border-none cursor-pointer active:bg-blue-800"
               >
                 {tc.backHome}
               </button>
