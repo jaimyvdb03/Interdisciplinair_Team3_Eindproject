@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find \"C:\\\\Users\\\\spron\\\\Downloads\\\\School\\\\Slimme sociale stad\\\\proj\\\\Interdisciplinair_Team3_Eindproject\\\\project\\\\src\" -type f -name \"*.js\" | head -50)",
+      "Bash(rm -rf 'C:/Users/spron/Downloads/School/Slimme sociale stad/proj/Interdisciplinair_Team3_Eindproject/project/.claude')",
+      "Bash(rm -rf 'C:/Users/spron/Downloads/School/Slimme sociale stad/proj/Interdisciplinair_Team3_Eindproject/project/build')",
+      "Bash(rm 'C:/Users/spron/Downloads/School/Slimme sociale stad/proj/Interdisciplinair_Team3_Eindproject/project/public/icons/Container_User.png')",
+      "Bash(rm 'C:/Users/spron/Downloads/School/Slimme sociale stad/proj/Interdisciplinair_Team3_Eindproject/project/public/icons/Container_afspraken.png')",
+      "Bash(rm 'C:/Users/spron/Downloads/School/Slimme sociale stad/proj/Interdisciplinair_Team3_Eindproject/project/public/icons/Container_afspraken_secondairy.png')",
+      "Bash(rm 'C:/Users/spron/Downloads/School/Slimme sociale stad/proj/Interdisciplinair_Team3_Eindproject/project/public/icons/Container_bend_arrow.png')",
+      "Bash(rm 'C:/Users/spron/Downloads/School/Slimme sociale stad/proj/Interdisciplinair_Team3_Eindproject/project/public/icons/Container_communicatie.png')",
+      "Bash(rm 'C:/Users/spron/Downloads/School/Slimme sociale stad/proj/Interdisciplinair_Team3_Eindproject/project/public/logo192.png')",
+      "Bash(rm 'C:/Users/spron/Downloads/School/Slimme sociale stad/proj/Interdisciplinair_Team3_Eindproject/project/public/logo512.png')",
+      "Bash(rm 'C:/Users/spron/Downloads/School/Slimme sociale stad/proj/Interdisciplinair_Team3_Eindproject/project/public/manifest.json')",
+      "Bash(rm 'C:/Users/spron/Downloads/School/Slimme sociale stad/proj/Interdisciplinair_Team3_Eindproject/project/public/robots.txt')",
+      "Bash(rm 'C:/Users/spron/Downloads/School/Slimme sociale stad/proj/Interdisciplinair_Team3_Eindproject/project/src/App.css')",
+      "Bash(find \"C:\\\\\\\\Users\\\\\\\\spron\\\\\\\\Downloads\\\\\\\\School\\\\\\\\Slimme sociale stad\\\\\\\\proj\\\\\\\\Interdisciplinair_Team3_Eindproject\\\\\\\\project\\\\\\\\src\" -name \"*.js\" -type f)"
+    ]
+  }
+}
