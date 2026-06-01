@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CvMockup from '../../components/CvMockup';
 import AudioBtn from '../../components/AudioBtn';
@@ -14,12 +14,12 @@ function renderStep(s, tc) {
         <div className="flex items-start justify-between gap-3 mb-3">
           <div className="flex items-center gap-2">
             <span className="text-2xl">{s.icon}</span>
-            <h2 className="text-[16px] font-bold text-gray-900">{s.title}</h2>
+            <h2 className="text-[18px] font-bold text-gray-900">{s.title}</h2>
           </div>
           <AudioBtn label={tc.listen} />
         </div>
-        <p className="text-sm text-gray-700 leading-relaxed mb-3">{s.body1}</p>
-        <p className="text-sm text-gray-700 leading-relaxed mb-4">{s.body2}</p>
+        <p className="text-base text-gray-700 leading-relaxed mb-3">{s.body1}</p>
+        <p className="text-base text-gray-700 leading-relaxed mb-4">{s.body2}</p>
         <CvMockup />
       </div>
     );
@@ -32,7 +32,7 @@ function renderStep(s, tc) {
       items[i] = (
         <div key={item.label} className="flex items-center gap-3 bg-gray-50 rounded-xl px-3 py-2">
           <span className="text-lg">{item.icon}</span>
-          <span className="text-sm text-gray-800">{item.label}</span>
+          <span className="text-base text-gray-800">{item.label}</span>
         </div>
       );
     }
@@ -41,11 +41,11 @@ function renderStep(s, tc) {
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
             <span className="text-xl">{s.icon}</span>
-            <h2 className="text-[16px] font-bold text-gray-900">{s.title}</h2>
+            <h2 className="text-[18px] font-bold text-gray-900">{s.title}</h2>
           </div>
           <AudioBtn label={tc.listen} />
         </div>
-        <p className="text-sm text-gray-700 leading-relaxed mb-3">{s.body}</p>
+        <p className="text-base text-gray-700 leading-relaxed mb-3">{s.body}</p>
         <div className="space-y-2">{items}</div>
       </div>
     );
@@ -57,11 +57,11 @@ function renderStep(s, tc) {
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
             <span className="text-xl">{s.icon}</span>
-            <h2 className="text-[16px] font-bold text-gray-900">{s.title}</h2>
+            <h2 className="text-[18px] font-bold text-gray-900">{s.title}</h2>
           </div>
           <AudioBtn label={tc.listen} />
         </div>
-        <p className="text-sm text-gray-700 leading-relaxed mb-3">{s.body}</p>
+        <p className="text-base text-gray-700 leading-relaxed mb-3">{s.body}</p>
         {s.noExpTitle && (
           <div className="bg-gray-50 rounded-xl px-3 py-2 mb-4 text-sm text-gray-600">
             <span className="font-semibold text-gray-800">{s.noExpTitle}</span> {s.noExpText}
@@ -90,7 +90,7 @@ function renderStep(s, tc) {
         <div key={method.label} className="bg-gray-50 rounded-xl p-3 mb-3">
           <div className="flex items-center gap-2 mb-2">
             <span className="text-lg">{method.icon}</span>
-            <span className="text-sm font-bold text-gray-800">{method.label}</span>
+            <span className="text-base font-bold text-gray-800">{method.label}</span>
           </div>
           <ol className="space-y-1">{stepItems}</ol>
         </div>
@@ -101,11 +101,11 @@ function renderStep(s, tc) {
         <div className="flex items-start justify-between gap-3 mb-3">
           <div className="flex items-center gap-2">
             <span className="text-2xl">{s.icon}</span>
-            <h2 className="text-[16px] font-bold text-gray-900">{s.title}</h2>
+            <h2 className="text-[18px] font-bold text-gray-900">{s.title}</h2>
           </div>
           <AudioBtn label={tc.listen} />
         </div>
-        <p className="text-sm text-gray-700 leading-relaxed mb-4">{s.body}</p>
+        <p className="text-base text-gray-700 leading-relaxed mb-4">{s.body}</p>
         {methodCards}
       </div>
     );

@@ -38,7 +38,7 @@ export default function QuizPage({ title, backTo, question, options, feedback, c
           }`}
       >
         <span className="font-bold text-gray-400 w-5 shrink-0 mt-px">{opt.id}</span>
-        <span className="text-sm text-gray-900 leading-snug">{opt.text}</span>
+        <span className="text-base text-gray-900 leading-snug">{opt.text}</span>
       </button>
     );
   }
@@ -98,7 +98,7 @@ export default function QuizPage({ title, backTo, question, options, feedback, c
                 </button>
               </div>
             </div>
-            <p className="text-sm text-gray-700 leading-relaxed mb-6">{feedback[selected]}</p>
+            <p className="text-base text-gray-700 leading-relaxed mb-6">{feedback[selected]}</p>
             <button
               onClick={() => navigate('/')}
               className="block w-full max-w-xs mx-auto bg-blue-600 text-white rounded-2xl py-4 text-base font-bold border-none cursor-pointer active:bg-blue-800"

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AudioBtn from '../../components/AudioBtn';
 import PageHeader from '../../components/PageHeader';
@@ -6,7 +6,7 @@ import ProgressBar from '../../components/ProgressBar';
 import { useLanguage } from '../../context/LanguageContext';
 import { translations } from '../../i18n/translations';
 
-const SECTION_ICONS = ['👋', '📍', '👤', '💼', '⭐', '✉️'];
+const SECTION_ICONS = ['ðŸ‘‹', 'ðŸ“', 'ðŸ‘¤', 'ðŸ’¼', 'â­', 'âœ‰ï¸'];
 
 const LETTER_PARTS = [
   { si: 0, text: 'Beste meneer Jansen,' },
@@ -24,12 +24,12 @@ function renderStep(step, sl, tc) {
       <div className="bg-white rounded-2xl p-4 shadow-sm">
         <div className="flex items-start justify-between gap-3 mb-3">
           <div className="flex items-center gap-2">
-            <span className="text-2xl">📝</span>
-            <h2 className="text-[16px] font-bold text-gray-900">{sl.s0.title}</h2>
+            <span className="text-2xl">ðŸ“</span>
+            <h2 className="text-[18px] font-bold text-gray-900">{sl.s0.title}</h2>
           </div>
           <AudioBtn label={tc.listen} />
         </div>
-        <p className="text-sm text-gray-700 leading-relaxed">{sl.s0.body}</p>
+        <p className="text-base text-gray-700 leading-relaxed">{sl.s0.body}</p>
       </div>
     );
   }
@@ -44,7 +44,7 @@ function renderStep(step, sl, tc) {
             <span className="text-base leading-none">{SECTION_ICONS[part.si]}</span>
             <span className="text-[10px] text-gray-400 font-medium">{part.si + 1}</span>
           </div>
-          <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-line">{part.text}</p>
+          <p className="text-base text-gray-700 leading-relaxed whitespace-pre-line">{part.text}</p>
         </div>
       );
     }
@@ -52,8 +52,8 @@ function renderStep(step, sl, tc) {
       <div className="bg-white rounded-2xl p-4 shadow-sm">
         <div className="flex items-start justify-between gap-3 mb-3">
           <div className="flex items-center gap-2">
-            <span className="text-2xl">📄</span>
-            <h2 className="text-[16px] font-bold text-gray-900">{sl.s1.title}</h2>
+            <span className="text-2xl">ðŸ“„</span>
+            <h2 className="text-[18px] font-bold text-gray-900">{sl.s1.title}</h2>
           </div>
           <AudioBtn label={tc.listen} />
         </div>
@@ -81,12 +81,12 @@ function renderStep(step, sl, tc) {
         <p className="text-xs font-semibold text-gray-400 mb-2 uppercase tracking-wide">{sl.subheading}</p>
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
-            <span className="text-xl">👋</span>
-            <h2 className="text-[16px] font-bold text-gray-900">{sl.s2.title}</h2>
+            <span className="text-xl">ðŸ‘‹</span>
+            <h2 className="text-[18px] font-bold text-gray-900">{sl.s2.title}</h2>
           </div>
           <AudioBtn label={tc.listen} />
         </div>
-        <p className="text-sm text-gray-700 leading-relaxed mb-3">{sl.s2.intro}</p>
+        <p className="text-base text-gray-700 leading-relaxed mb-3">{sl.s2.intro}</p>
         <div className="space-y-2">{options}</div>
       </div>
     );
@@ -98,15 +98,15 @@ function renderStep(step, sl, tc) {
         <p className="text-xs font-semibold text-gray-400 mb-2 uppercase tracking-wide">{sl.subheading}</p>
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
-            <span className="text-xl">📍</span>
-            <h2 className="text-[16px] font-bold text-gray-900">{sl.s3.title}</h2>
+            <span className="text-xl">ðŸ“</span>
+            <h2 className="text-[18px] font-bold text-gray-900">{sl.s3.title}</h2>
           </div>
           <AudioBtn label={tc.listen} />
         </div>
-        <p className="text-sm text-gray-700 leading-relaxed mb-3">{sl.s3.body}</p>
+        <p className="text-base text-gray-700 leading-relaxed mb-3">{sl.s3.body}</p>
         <div className="bg-gray-50 rounded-xl px-3 py-3">
           <div className="text-[11px] font-semibold text-gray-500 mb-1">{sl.s3.exampleLabel}</div>
-          <p className="text-sm text-gray-700 italic">{sl.s3.example}</p>
+          <p className="text-base text-gray-700 italic">{sl.s3.example}</p>
         </div>
       </div>
     );
@@ -118,12 +118,12 @@ function renderStep(step, sl, tc) {
         <p className="text-xs font-semibold text-gray-400 mb-2 uppercase tracking-wide">{sl.subheading}</p>
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
-            <span className="text-xl">👤</span>
-            <h2 className="text-[16px] font-bold text-gray-900">{sl.s4.title}</h2>
+            <span className="text-xl">ðŸ‘¤</span>
+            <h2 className="text-[18px] font-bold text-gray-900">{sl.s4.title}</h2>
           </div>
           <AudioBtn label={tc.listen} />
         </div>
-        <p className="text-sm text-gray-700 leading-relaxed">{sl.s4.body}</p>
+        <p className="text-base text-gray-700 leading-relaxed">{sl.s4.body}</p>
       </div>
     );
   }
@@ -134,13 +134,13 @@ function renderStep(step, sl, tc) {
         <p className="text-xs font-semibold text-gray-400 mb-2 uppercase tracking-wide">{sl.subheading}</p>
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
-            <span className="text-xl">💼</span>
-            <h2 className="text-[16px] font-bold text-gray-900">{sl.s5.title}</h2>
+            <span className="text-xl">ðŸ’¼</span>
+            <h2 className="text-[18px] font-bold text-gray-900">{sl.s5.title}</h2>
           </div>
           <AudioBtn label={tc.listen} />
         </div>
-        <p className="text-sm text-gray-700 leading-relaxed mb-3">{sl.s5.body}</p>
-        <div className="bg-gray-50 rounded-xl px-3 py-2 text-sm text-gray-600">
+        <p className="text-base text-gray-700 leading-relaxed mb-3">{sl.s5.body}</p>
+        <div className="bg-gray-50 rounded-xl px-3 py-2 text-base text-gray-600">
           <span className="font-semibold text-gray-800">{sl.s5.noExpLabel}</span> {sl.s5.noExp}
         </div>
       </div>
@@ -153,15 +153,15 @@ function renderStep(step, sl, tc) {
         <p className="text-xs font-semibold text-gray-400 mb-2 uppercase tracking-wide">{sl.subheading}</p>
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
-            <span className="text-xl">⭐</span>
-            <h2 className="text-[16px] font-bold text-gray-900">{sl.s6.title}</h2>
+            <span className="text-xl">â­</span>
+            <h2 className="text-[18px] font-bold text-gray-900">{sl.s6.title}</h2>
           </div>
           <AudioBtn label={tc.listen} />
         </div>
-        <p className="text-sm text-gray-700 leading-relaxed mb-3">{sl.s6.body}</p>
+        <p className="text-base text-gray-700 leading-relaxed mb-3">{sl.s6.body}</p>
         <div className="bg-gray-50 rounded-xl p-3">
           <div className="text-[11px] font-semibold text-gray-500 mb-1">{sl.s6.exampleLabel}</div>
-          <p className="text-sm text-gray-700 italic leading-relaxed">{sl.s6.example}</p>
+          <p className="text-base text-gray-700 italic leading-relaxed">{sl.s6.example}</p>
         </div>
       </div>
     );
@@ -183,19 +183,19 @@ function renderStep(step, sl, tc) {
         <p className="text-xs font-semibold text-gray-400 mb-2 uppercase tracking-wide">{sl.subheading}</p>
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
-            <span className="text-xl">✉️</span>
-            <h2 className="text-[16px] font-bold text-gray-900">{sl.s7.title}</h2>
+            <span className="text-xl">âœ‰ï¸</span>
+            <h2 className="text-[18px] font-bold text-gray-900">{sl.s7.title}</h2>
           </div>
           <AudioBtn label={tc.listen} />
         </div>
-        <p className="text-sm text-gray-700 leading-relaxed mb-3">{sl.s7.body1}</p>
-        <p className="text-sm text-gray-700 leading-relaxed mb-3">
+        <p className="text-base text-gray-700 leading-relaxed mb-3">{sl.s7.body1}</p>
+        <p className="text-base text-gray-700 leading-relaxed mb-3">
           {sl.s7.body2} <span className="italic">{sl.s7.cvNote}</span>
         </p>
         <div className="space-y-2 mb-3">
           {closingOptions}
         </div>
-        <p className="text-sm text-gray-600">{sl.s7.formatNote}</p>
+        <p className="text-base text-gray-600">{sl.s7.formatNote}</p>
       </div>
     );
   }
