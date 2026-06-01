@@ -44,8 +44,8 @@ export default function VideoLessen() {
             </div>
 
             <div className="bg-white rounded-2xl px-4 py-3.5 mt-3 shadow-sm">
-              <p className="text-[15px] font-bold text-gray-900 mb-1">{v[selected.titleKey]}</p>
-              <p className="text-sm text-gray-500 leading-relaxed">{v[selected.descKey]}</p>
+              <p className="text-[19px] font-bold text-gray-900 mb-1">{v[selected.titleKey]}</p>
+              <p className="text-base text-gray-500 leading-relaxed">{v[selected.descKey]}</p>
             </div>
           </div>
         </div>
@@ -72,7 +72,7 @@ export default function VideoLessen() {
           <p className="text-[14.5px] font-semibold text-gray-900 leading-tight truncate">
             {v[video.titleKey]}
           </p>
-          <p className="text-xs text-gray-400 mt-0.5">{video.duration}</p>
+          <p className="text-sm text-gray-400 mt-0.5">{video.duration}</p>
         </div>
         <span className="text-xl text-gray-300 shrink-0">›</span>
       </button>

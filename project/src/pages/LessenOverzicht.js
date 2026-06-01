@@ -39,7 +39,7 @@ export default function LessenOverzicht() {
           <p className={`text-[14.5px] font-semibold leading-tight truncate ${les.status === 'wip' ? 'text-gray-400' : 'text-gray-900'}`}>
             {text.title}
           </p>
-          <p className="text-xs text-gray-400 mt-0.5">{text.meta}</p>
+          <p className="text-sm text-gray-400 mt-0.5">{text.meta}</p>
         </div>
         {les.status === 'done'   && <span className="w-3 h-3 rounded-full bg-green-500 shrink-0" />}
         {les.status === 'wip'    && <span className="w-3 h-3 rounded-full bg-gray-300 shrink-0" />}

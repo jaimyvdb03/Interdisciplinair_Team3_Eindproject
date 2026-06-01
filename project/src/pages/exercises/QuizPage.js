@@ -51,8 +51,8 @@ export default function QuizPage({ title, backTo, question, options, feedback, c
         {/* Question bg-white rounded-2xl p-4 shadow-sm */}
         <div className="mx-4 mb-3 bg-white rounded-2xl p-4 shadow-sm sm:mx-0">
           <div className="flex justify-between items-start gap-3">
-            <p className="text-[17px] font-bold text-gray-900 leading-snug flex-1">{question}</p>
-            <button className="flex items-center gap-1.5 bg-gray-100 rounded-full px-3 py-1.5 text-sm text-gray-500 shrink-0 border-none cursor-pointer whitespace-nowrap">
+            <p className="text-[19px] font-bold text-gray-900 leading-snug flex-1">{question}</p>
+            <button className="flex items-center gap-1.5 bg-gray-100 rounded-full px-3 py-1.5 text-base text-gray-500 shrink-0 border-none cursor-pointer whitespace-nowrap">
               {tc.listen}
             </button>
           </div>
@@ -87,7 +87,7 @@ export default function QuizPage({ title, backTo, question, options, feedback, c
                 {isCorrect ? '✅' : '❌'}
               </div>
               <div className="flex items-center gap-2">
-                <button className="flex items-center gap-1.5 bg-gray-100 rounded-full px-3 py-1.5 text-sm text-gray-500 border-none cursor-pointer">
+                <button className="flex items-center gap-1.5 bg-gray-100 rounded-full px-3 py-1.5 text-base text-gray-500 border-none cursor-pointer">
                   {tc.listen}
                 </button>
                 <button
@@ -98,7 +98,7 @@ export default function QuizPage({ title, backTo, question, options, feedback, c
                 </button>
               </div>
             </div>
-            <p className="text-sm text-gray-700 leading-relaxed mb-6">{feedback[selected]}</p>
+            <p className="text-base text-gray-700 leading-relaxed mb-6">{feedback[selected]}</p>
             <button
               onClick={() => navigate('/')}
               className="block w-full max-w-xs mx-auto bg-blue-600 text-white rounded-2xl py-4 text-base font-bold border-none cursor-pointer active:bg-blue-800"

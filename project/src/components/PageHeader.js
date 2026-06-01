@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import LangPicker from './LangPicker';
 
 export default function PageHeader({ title, onBack, step, total, titleClass = '' }) {
   const navigate = useNavigate();
@@ -10,7 +11,8 @@ export default function PageHeader({ title, onBack, step, total, titleClass = ''
       >
         ‹
       </button>
-      <h1 className={`text-[17px] font-bold text-gray-900 flex-1 ${titleClass}`}>{title}</h1>
+      <h1 className={`text-[19px] font-bold text-gray-900 flex-1 ${titleClass}`}>{title}</h1>
+      <LangPicker />
       <button
         onClick={() => navigate('/')}
         className="w-[34px] h-[34px] rounded-full bg-gray-200 border-none flex items-center justify-center text-base text-gray-600 cursor-pointer shrink-0 active:bg-gray-300 transition-colors"
