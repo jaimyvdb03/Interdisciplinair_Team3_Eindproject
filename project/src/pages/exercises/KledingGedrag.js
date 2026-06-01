@@ -78,10 +78,10 @@ export default function KledingGedrag() {
         <PageHeader title={kg.title} onBack={() => navigate('/oefeningen')} />
 
         <div className="mx-4 mb-4 bg-white rounded-2xl p-4 shadow-sm sm:mx-0">
-          <p className="text-[17px] font-bold text-gray-900 leading-snug mb-3">
+          <p className="text-[19px] font-bold text-gray-900 leading-snug mb-3">
             {current.question}
           </p>
-          <button className="flex items-center gap-1.5 bg-gray-100 rounded-full px-3 py-1.5 text-sm text-gray-500 border-none cursor-pointer">
+          <button className="flex items-center gap-1.5 bg-gray-100 rounded-full px-3 py-1.5 text-base text-gray-500 border-none cursor-pointer">
             {tc.listen}
           </button>
         </div>
@@ -112,7 +112,7 @@ export default function KledingGedrag() {
                 {isCorrect ? '✅' : '❌'}
               </div>
               <div className="flex items-center gap-2">
-                <button className="flex items-center gap-1.5 bg-gray-100 rounded-full px-3 py-1.5 text-sm text-gray-500 border-none cursor-pointer">
+                <button className="flex items-center gap-1.5 bg-gray-100 rounded-full px-3 py-1.5 text-base text-gray-500 border-none cursor-pointer">
                   {tc.listen}
                 </button>
                 <button
@@ -123,7 +123,7 @@ export default function KledingGedrag() {
                 </button>
               </div>
             </div>
-            <p className="text-sm text-gray-700 leading-relaxed mb-6">{current.feedback[selected]}</p>
+            <p className="text-base text-gray-700 leading-relaxed mb-6">{current.feedback[selected]}</p>
             {step < kg.questions.length - 1 ? (
               <button
                 onClick={() => { setShowPopup(false); setSelected(null); setStep(step + 1); }}
