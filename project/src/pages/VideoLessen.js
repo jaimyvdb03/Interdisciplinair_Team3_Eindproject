@@ -7,9 +7,8 @@ import { translations } from '../i18n/translations';
 const VIDEOS = [
   {
     id: 1,
-    youtubeId: '3tUPwKJEKrk',
     icon: '🎤',
-    bg: '#dbeafe',
+    youtubeId: '3tUPwKJEKrk',
     duration: '5 min',
     titleKey: 'video1Title',
     descKey: 'video1Desc',
@@ -62,12 +61,7 @@ export default function VideoLessen() {
         onClick={() => setSelected(video)}
         className="flex items-center gap-3.5 bg-white rounded-2xl px-3.5 py-3.5 sm:px-5 sm:py-4 text-left w-full border-none shadow-sm cursor-pointer active:scale-[0.98] transition-transform"
       >
-        <div
-          className="w-[46px] h-[46px] rounded-[13px] flex items-center justify-center text-xl shrink-0"
-          style={{ background: video.bg }}
-        >
-          {video.icon}
-        </div>
+        <span className="text-[28px] shrink-0">{video.icon}</span>
         <div className="flex-1 min-w-0">
           <p className="text-[14.5px] font-semibold text-gray-900 leading-tight truncate">
             {v[video.titleKey]}

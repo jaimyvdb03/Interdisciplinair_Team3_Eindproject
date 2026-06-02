@@ -11,10 +11,7 @@ function renderStep(step, s, tc) {
     return (
       <div className="bg-white rounded-2xl p-4 shadow-sm">
         <div className="flex items-start justify-between gap-3 mb-3">
-          <div className="flex items-center gap-2">
-            <span className="text-2xl">⏰</span>
-            <h2 className="text-[18px] font-bold text-gray-900">{s.s0.title}</h2>
-          </div>
+          <h2 className="text-[18px] font-bold text-gray-900">{s.s0.title}</h2>
           <AudioBtn label={tc.listen} />
         </div>
         <p className="text-base text-gray-700 leading-relaxed">{s.s0.body}</p>
@@ -112,8 +109,7 @@ function renderStep(step, s, tc) {
     for (let i = 0; i < s.s6.items.length; i++) {
       const item = s.s6.items[i];
       items[i] = (
-        <div key={item.text} className="flex items-center gap-3 bg-gray-50 rounded-xl px-3 py-2">
-          <span className="text-lg">{item.icon}</span>
+        <div key={item.text} className="bg-gray-50 rounded-xl px-3 py-2">
           <span className="text-base text-gray-700">{item.text}</span>
         </div>
       );
@@ -121,10 +117,7 @@ function renderStep(step, s, tc) {
     return (
       <div className="bg-white rounded-2xl p-4 shadow-sm">
         <div className="flex items-center justify-between mb-3">
-          <div className="flex items-center gap-2">
-            <span className="text-2xl">📋</span>
-            <h2 className="text-[18px] font-bold text-gray-900">{s.s6.title}</h2>
-          </div>
+          <h2 className="text-[18px] font-bold text-gray-900">{s.s6.title}</h2>
           <AudioBtn label={tc.listen} />
         </div>
         <p className="text-base text-gray-700 leading-relaxed mb-3">{s.s6.body1}</p>

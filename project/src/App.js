@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { LanguageProvider } from './context/LanguageContext';
 import Home from './pages/Home';
 import LessenOverzicht from './pages/LessenOverzicht';
@@ -32,6 +32,7 @@ export default function App() {
         <Route path="/oefeningen/op-tijd-komen"       element={<OpTijdKomen />} />
         <Route path="/video"                          element={<VideoLessen />} />
         <Route path="/hulp"                           element={<Hulp />} />
+        <Route path="*"                               element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
     </LanguageProvider>
