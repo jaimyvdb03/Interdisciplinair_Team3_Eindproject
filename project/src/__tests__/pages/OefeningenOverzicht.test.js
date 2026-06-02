@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import OefeningenOverzicht from '../pages/OefeningenOverzicht';
+import OefeningenOverzicht from '../../pages/OefeningenOverzicht';
 
 const mockNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
@@ -21,9 +21,17 @@ test('renders page title', () => {
 
 test('WIP items are disabled', () => {
   renderPage();
-  const wipTitles = ['Vacatures zoeken', 'Het sollicitatiegesprek', 'Op tijd komen'];
+  const wipTitles = ['Vacatures zoeken', 'Het sollicitatiegesprek'];
   wipTitles.forEach((title) => {
     expect(screen.getByText(title).closest('button')).toBeDisabled();
+  });
+});
+
+test('active items are not disabled', () => {
+  renderPage();
+  const activeTitles = ['Je CV maken', 'Sollicitatiebrief', 'Kleding & gedrag', 'Op tijd komen'];
+  activeTitles.forEach((title) => {
+    expect(screen.getByText(title).closest('button')).not.toBeDisabled();
   });
 });
 

@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import KledingGedrag from '../pages/exercises/KledingGedrag';
+import KledingGedrag from '../../pages/exercises/KledingGedrag';
 
 const mockNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
@@ -21,9 +21,9 @@ test('renders question', () => {
 
 test('renders all three outfit options', () => {
   renderPage();
-  expect(screen.getByTestId('outfit-A')).toBeInTheDocument();
-  expect(screen.getByTestId('outfit-B')).toBeInTheDocument();
-  expect(screen.getByTestId('outfit-C')).toBeInTheDocument();
+  expect(screen.getByText('A')).toBeInTheDocument();
+  expect(screen.getByText('B')).toBeInTheDocument();
+  expect(screen.getByText('C')).toBeInTheDocument();
 });
 
 test('Controleren does nothing when no outfit selected', () => {
@@ -34,23 +34,31 @@ test('Controleren does nothing when no outfit selected', () => {
 
 test('selecting outfit A (correct) shows positive feedback', () => {
   renderPage();
-  fireEvent.click(screen.getByTestId('outfit-A'));
+  fireEvent.click(screen.getByText('A'));
   fireEvent.click(screen.getByText('Controleren'));
-  expect(screen.getByText('✅')).toBeInTheDocument();
+  expect(screen.getByText('✓')).toBeInTheDocument();
   expect(screen.getByText(/goede keuze/i)).toBeInTheDocument();
 });
 
 test('selecting outfit C (wrong) shows negative feedback', () => {
   renderPage();
-  fireEvent.click(screen.getByTestId('outfit-C'));
+  fireEvent.click(screen.getByText('C'));
   fireEvent.click(screen.getByText('Controleren'));
-  expect(screen.getByText('❌')).toBeInTheDocument();
-  expect(screen.getByText(/niet netjes genoeg/i)).toBeInTheDocument();
+  expect(screen.getByText(/niet geschikt/i)).toBeInTheDocument();
 });
 
-test('Terug naar home navigates to /', () => {
+test('Terug naar home navigates to / after completing all questions', () => {
   renderPage();
-  fireEvent.click(screen.getByTestId('outfit-A'));
+  // question 1
+  fireEvent.click(screen.getByText('A'));
+  fireEvent.click(screen.getByText('Controleren'));
+  fireEvent.click(screen.getByText('Volgende vraag'));
+  // question 2
+  fireEvent.click(screen.getByText('C'));
+  fireEvent.click(screen.getByText('Controleren'));
+  fireEvent.click(screen.getByText('Volgende vraag'));
+  // question 3 (last)
+  fireEvent.click(screen.getByText('C'));
   fireEvent.click(screen.getByText('Controleren'));
   fireEvent.click(screen.getByText('Terug naar home'));
   expect(mockNavigate).toHaveBeenCalledWith('/');
