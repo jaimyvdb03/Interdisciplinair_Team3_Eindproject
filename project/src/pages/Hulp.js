@@ -14,7 +14,6 @@ export default function Hulp() {
         <PageHeader title={t.hulp.pageTitle} onBack={() => navigate('/')} />
 
         <div className="flex flex-col items-center justify-center gap-3 mt-24 px-4 text-center">
-          <span className="text-5xl">🚧</span>
           <p className="text-[17px] font-bold text-gray-800">{t.hulp.comingSoon}</p>
           <p className="text-sm text-gray-400">{t.hulp.comingSoonSub}</p>
         </div>

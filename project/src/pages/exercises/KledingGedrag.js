@@ -108,8 +108,8 @@ export default function KledingGedrag() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex justify-between items-center mb-4">
-              <div className={`w-8 h-8 rounded-xl flex items-center justify-center text-lg ${isCorrect ? 'bg-green-100' : 'bg-red-100'}`}>
-                {isCorrect ? '✅' : '❌'}
+              <div className={`w-8 h-8 rounded-xl flex items-center justify-center text-base font-bold ${isCorrect ? 'bg-green-100 text-green-600' : 'bg-red-100 text-red-500'}`}>
+                {isCorrect ? '✓' : '✕'}
               </div>
               <div className="flex items-center gap-2">
                 <button className="flex items-center gap-1.5 bg-gray-100 rounded-full px-3 py-1.5 text-base text-gray-500 border-none cursor-pointer">

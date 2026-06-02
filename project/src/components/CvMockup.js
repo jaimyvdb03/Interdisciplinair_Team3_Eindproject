@@ -15,13 +15,13 @@ export default function CvMockup({ highlight }) {
     <div className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 text-[7px] leading-tight select-none">
       {/* Header bar */}
       <div className="bg-gray-700 text-white px-3 py-2 flex gap-2 items-center">
-        <div className="w-8 h-8 rounded-full bg-gray-400 shrink-0 overflow-hidden flex items-center justify-center text-lg">
-          👤
+        <div className="w-8 h-8 rounded-full bg-gray-400 shrink-0 overflow-hidden flex items-center justify-center">
+          <div className="w-4 h-4 rounded-full bg-gray-300" />
         </div>
         <div>
           <p className="font-bold text-[9px]">Illias Thijssen</p>
           <p className="opacity-70 text-[7px]">{m.jobTitle}</p>
-          <p className="opacity-60 text-[6px] mt-0.5">📧 illias@email.nl  📞 06-12345678</p>
+          <p className="opacity-60 text-[6px] mt-0.5">illias@email.nl  06-12345678</p>
         </div>
       </div>
 

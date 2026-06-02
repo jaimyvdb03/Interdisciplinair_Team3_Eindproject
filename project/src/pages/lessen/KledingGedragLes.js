@@ -11,16 +11,11 @@ function renderStep(s, tc, tk) {
     return (
       <div className="bg-white rounded-2xl p-4 shadow-sm">
         <div className="flex items-start justify-between gap-3 mb-3">
-          <div className="flex items-center gap-2">
-            <span className="text-2xl">{s.icon}</span>
-            <h2 className="text-[18px] font-bold text-gray-900">{s.title}</h2>
-          </div>
+          <h2 className="text-[18px] font-bold text-gray-900">{s.title}</h2>
           <AudioBtn label={tc.listen} />
         </div>
         <p className="text-base text-gray-700 leading-relaxed mb-3">{s.body1}</p>
-        <p className="text-base text-gray-700 leading-relaxed mb-3">{s.body2}</p>
-        <p className="text-base text-gray-700 leading-relaxed mb-3">{tk.introBody3}</p>
-        <p className="text-base text-gray-700 leading-relaxed mb-4">{tk.introBody4}</p>
+        <p className="text-base text-gray-700 leading-relaxed mb-4">{s.body2}</p>
         <div className="flex gap-6 justify-center mt-4">
           <img src="/images/kleding&gedrag/vraag1/office_suit.png" alt={tk.imgAlt.suit} className="w-32 h-32 object-contain rounded-xl border" />
           <img src="/images/kleding&gedrag/vraag1/casual.png" alt={tk.imgAlt.casual} className="w-32 h-32 object-contain rounded-xl border" />
@@ -35,8 +30,8 @@ function renderStep(s, tc, tk) {
     for (let i = 0; i < s.items.length; i++) {
       const item = s.items[i];
       items[i] = (
-        <div key={item.label} className="flex items-center gap-3 bg-gray-50 rounded-xl px-3 py-2">
-          <span className="text-lg">{item.icon}</span>
+        <div key={item.label} className="bg-gray-50 rounded-xl px-3 py-2 flex items-center gap-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-gray-400 shrink-0" />
           <span className="text-base text-gray-800">{item.label}</span>
         </div>
       );
@@ -44,15 +39,10 @@ function renderStep(s, tc, tk) {
     return (
       <div className="bg-white rounded-2xl p-4 shadow-sm">
         <div className="flex items-center justify-between mb-3">
-          <div className="flex items-center gap-2">
-            <span className="text-xl">{s.icon}</span>
-            <h2 className="text-[18px] font-bold text-gray-900">{s.title}</h2>
-          </div>
+          <h2 className="text-[18px] font-bold text-gray-900">{s.title}</h2>
           <AudioBtn label={tc.listen} />
         </div>
-        <p className="text-base text-gray-700 leading-relaxed mb-3">{s.body}</p>
-        <p className="text-base text-gray-700 leading-relaxed mb-3">{tk.clothingExtra1}</p>
-        <p className="text-base text-gray-700 leading-relaxed mb-3">{tk.clothingExtra2}</p>
+        <p className="text-base text-gray-700 leading-relaxed mb-4">{s.body}</p>
         <div className="flex gap-6 justify-center mb-4">
           <img src="/images/kleding&gedrag/vraag1/office_suit.png" alt={tk.imgAlt.suit} className="w-32 h-32 object-contain rounded-xl border" />
           <img src="/images/kleding&gedrag/vraag1/casual.png" alt={tk.imgAlt.casual} className="w-32 h-32 object-contain rounded-xl border" />
@@ -68,8 +58,8 @@ function renderStep(s, tc, tk) {
     for (let i = 0; i < s.items.length; i++) {
       const item = s.items[i];
       items[i] = (
-        <div key={item.label} className="flex items-center gap-3 bg-gray-50 rounded-xl px-3 py-2">
-          <span className="text-lg">{item.icon}</span>
+        <div key={item.label} className="bg-gray-50 rounded-xl px-3 py-2 flex items-center gap-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-gray-400 shrink-0" />
           <span className="text-base text-gray-800">{item.label}</span>
         </div>
       );
@@ -77,15 +67,10 @@ function renderStep(s, tc, tk) {
     return (
       <div className="bg-white rounded-2xl p-4 shadow-sm">
         <div className="flex items-center justify-between mb-3">
-          <div className="flex items-center gap-2">
-            <span className="text-xl">{s.icon}</span>
-            <h2 className="text-[18px] font-bold text-gray-900">{s.title}</h2>
-          </div>
+          <h2 className="text-[18px] font-bold text-gray-900">{s.title}</h2>
           <AudioBtn label={tc.listen} />
         </div>
-        <p className="text-base text-gray-700 leading-relaxed mb-3">{s.body}</p>
-        <p className="text-base text-gray-700 leading-relaxed mb-3">{tk.behaviorExtra1}</p>
-        <p className="text-base text-gray-700 leading-relaxed mb-3">{tk.behaviorExtra2}</p>
+        <p className="text-base text-gray-700 leading-relaxed mb-4">{s.body}</p>
         <div className="flex gap-6 justify-center mb-4">
           <img src="/images/kleding&gedrag/vraag3/upright.png" alt={tk.imgAlt.upright} className="w-32 h-32 object-contain rounded-xl border" />
           <img src="/images/kleding&gedrag/vraag3/slouch.png" alt={tk.imgAlt.slouch} className="w-32 h-32 object-contain rounded-xl border" />
@@ -107,11 +92,11 @@ export default function KledingGedragLes() {
   const [step, setStep] = useState(0);
 
   const steps = [
-    { type: 'intro',  icon: '👔', title: tk.introTitle,    body1: tk.introBody1,    body2: tk.introBody2 },
-    { type: 'list',   kind: 'clothing', icon: '🧥', title: tk.clothingTitle, body: tk.clothingBody,
-      items: [{ icon: '👕', label: tk.item1 }, { icon: '👖', label: tk.item2 }, { icon: '🧼', label: tk.item3 }] },
-    { type: 'list',   kind: 'behavior', icon: '🧍', title: tk.behaviorTitle, body: tk.behaviorBody,
-      items: [{ icon: '🙂', label: tk.item4 }, { icon: '🤝', label: tk.item5 }, { icon: '🪑', label: tk.item6 }] },
+    { type: 'intro',  title: tk.introTitle,    body1: tk.introBody1,    body2: tk.introBody2 },
+    { type: 'list',   kind: 'clothing', title: tk.clothingTitle, body: tk.clothingBody,
+      items: [{ label: tk.item1 }, { label: tk.item2 }, { label: tk.item3 }] },
+    { type: 'list',   kind: 'behavior', title: tk.behaviorTitle, body: tk.behaviorBody,
+      items: [{ label: tk.item4 }, { label: tk.item5 }, { label: tk.item6 }] },
   ];
 
   const total = steps.length;

@@ -4,12 +4,12 @@ import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../i18n/translations';
 
 const LESSEN_STATIC = [
-  { id: 1, icon: '📄', bg: '#dbeafe', status: 'done',   to: '/lessen/cv-maken'          },
-  { id: 2, icon: '📋', bg: '#fef9c3', status: 'active', to: '/lessen/sollicitatiebrief'  },
-  { id: 3, icon: '👔', bg: '#ede9fe', status: 'active', to: '/lessen/kleding-gedrag'      },
-  { id: 4, icon: '⏰', bg: '#f3f4f6', status: 'active', to: '/lessen/op-tijd-komen'      },
-  { id: 5, icon: '🔍', bg: '#d1fae5', status: 'wip',    to: null                         },
-  { id: 6, icon: '🗣️', bg: '#ffeaea', status: 'wip',    to: null                         },
+  { id: 1, icon: '📄', status: 'done',   to: '/lessen/cv-maken'          },
+  { id: 2, icon: '💼', status: 'active', to: '/lessen/sollicitatiebrief'  },
+  { id: 3, icon: '👔', status: 'active', to: '/lessen/kleding-gedrag'      },
+  { id: 4, icon: '⏰', status: 'active', to: '/lessen/op-tijd-komen'      },
+  { id: 5, icon: '🔍', status: 'wip',    to: null                         },
+  { id: 6, icon: '🤝', status: 'wip',    to: null                         },
 ];
 
 export default function LessenOverzicht() {
@@ -32,9 +32,7 @@ export default function LessenOverzicht() {
             : 'bg-white shadow-sm cursor-pointer active:scale-[0.98]'
           }`}
       >
-        <div className="w-[46px] h-[46px] rounded-[13px] flex items-center justify-center text-xl shrink-0" style={{ background: les.bg }}>
-          {les.icon}
-        </div>
+        <span className="text-[28px] shrink-0">{les.icon}</span>
         <div className="flex-1 min-w-0">
           <p className={`text-[14.5px] font-semibold leading-tight truncate ${les.status === 'wip' ? 'text-gray-400' : 'text-gray-900'}`}>
             {text.title}

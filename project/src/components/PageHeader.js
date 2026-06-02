@@ -15,9 +15,12 @@ export default function PageHeader({ title, onBack, step, total, titleClass = ''
       <LangPicker />
       <button
         onClick={() => navigate('/')}
-        className="w-[34px] h-[34px] rounded-full bg-gray-200 border-none flex items-center justify-center text-base text-gray-600 cursor-pointer shrink-0 active:bg-gray-300 transition-colors"
+        className="w-[34px] h-[34px] rounded-full bg-gray-200 border-none flex items-center justify-center text-gray-600 cursor-pointer shrink-0 active:bg-gray-300 transition-colors"
+        aria-label="Home"
       >
-        🏠
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
+          <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+        </svg>
       </button>
       {step != null && <span className="text-sm text-gray-400 font-medium shrink-0">{step} / {total}</span>}
     </div>
