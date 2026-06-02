@@ -51,7 +51,7 @@ export default function Home() {
           <h1 className="text-[22px] font-bold text-gray-900 flex-1">{t.home.welcome}</h1>
           <button
             onClick={() => setShowHelp(true)}
-            className="text-sm font-semibold text-gray-500 cursor-pointer border-none bg-transparent shrink-0 whitespace-nowrap"
+            className="bg-white border border-gray-200 rounded-xl px-3 py-1.5 text-sm font-semibold text-gray-700 shadow-sm whitespace-nowrap cursor-pointer shrink-0"
             aria-label="Uitleg"
           >
             {t.home.helpBtn}
