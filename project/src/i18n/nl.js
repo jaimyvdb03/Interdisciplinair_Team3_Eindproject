@@ -1,6 +1,7 @@
 export const nl = {
   common: {
     listen:   '🔊 Luister',
+    stop:     "⏹ Stop",
     check:    'Controleren',
     backHome: 'Terug naar home',
     next:     'Volgende →',
@@ -15,6 +16,9 @@ export const nl = {
       { label: 'Video lessen', sub: 'Kijk en luister  ·  Video'         },
       { label: 'Oefeningen',   sub: 'Probeer het zelf'                  },
       { label: 'Hulp nodig?',  sub: 'Stel je vraag'                     },
+      { label: "Sollicitatiegesprek", sub: "Oefen met Sanne  ·  Spraak" },
+      { label: "Triviaspel", sub: "Quiz met Pim  ·  Spraak" },
+      { label: "Leaderboard", sub: "Bekijk de topscores" },
     ],
     progressLabel: 'Je voortgang',
     progressPct:   (p) => `${p}% voltooid`,

@@ -15,14 +15,30 @@ const LETTER_PARTS = [
   { si: 5, text: 'Graag kom ik langs voor een gesprek om mij verder voor te stellen en meer te horen over de functie.\n\nMijn cv zit in de bijlage. Als u nog vragen heeft, kunt u mij altijd mailen of bellen.\n\nMet vriendelijke groeten,\nKevin Bakker' },
 ];
 
+// Builds the spoken text for a step from its translated content.
+function briefStepText(step, sl) {
+  const j = (...xs) => xs.filter(Boolean).join('. ');
+  if (step === 0) return j(sl.s0 && sl.s0.title, sl.s0 && sl.s0.body);
+  if (step === 1) return j(sl.s1 && sl.s1.title, sl.letterNote);
+  if (step === 2) return j(sl.s2 && sl.s2.title, sl.s2 && sl.s2.intro, ...((sl.s2 && sl.s2.options) || []).map((o) => o.label + ': ' + o.example));
+  if (step === 3) return j(sl.s3 && sl.s3.title, sl.s3 && sl.s3.body, sl.s3 && sl.s3.example);
+  if (step === 4) return j(sl.s4 && sl.s4.title, sl.s4 && sl.s4.body);
+  if (step === 5) return j(sl.s5 && sl.s5.title, sl.s5 && sl.s5.body, sl.s5 && sl.s5.noExpLabel, sl.s5 && sl.s5.noExp);
+  if (step === 6) return j(sl.s6 && sl.s6.title, sl.s6 && sl.s6.body, sl.s6 && sl.s6.example);
+  if (step === 7) return j(sl.s7 && sl.s7.title, sl.s7 && sl.s7.body1, sl.s7 && sl.s7.body2, sl.s7 && sl.s7.cvNote,
+    ...((sl.s7 && sl.s7.closingOptions) || []).map((o) => o.label + ': ' + o.example), sl.s7 && sl.s7.formatNote);
+  return '';
+}
+
 function renderStep(step, sl, tc) {
+  const audio = briefStepText(step, sl);
 
   if (step === 0) {
     return (
       <div className="bg-white rounded-2xl p-4 shadow-sm">
         <div className="flex items-start justify-between gap-3 mb-3">
           <h2 className="text-[18px] font-bold text-gray-900">{sl.s0.title}</h2>
-          <AudioBtn label={tc.listen} />
+          <AudioBtn label={tc.listen} text={audio} />
         </div>
         <p className="text-base text-gray-700 leading-relaxed">{sl.s0.body}</p>
       </div>
@@ -44,7 +60,7 @@ function renderStep(step, sl, tc) {
       <div className="bg-white rounded-2xl p-4 shadow-sm">
         <div className="flex items-start justify-between gap-3 mb-3">
           <h2 className="text-[18px] font-bold text-gray-900">{sl.s1.title}</h2>
-          <AudioBtn label={tc.listen} />
+          <AudioBtn label={tc.listen} text={audio} />
         </div>
         <div className="rounded-xl overflow-hidden border border-gray-100 divide-y divide-gray-100">
           {rows}
@@ -69,7 +85,7 @@ function renderStep(step, sl, tc) {
         <p className="text-xs font-semibold text-gray-400 mb-2 uppercase tracking-wide">{sl.subheading}</p>
         <div className="flex items-center justify-between mb-3">
           <h2 className="text-[18px] font-bold text-gray-900">{sl.s2.title}</h2>
-          <AudioBtn label={tc.listen} />
+          <AudioBtn label={tc.listen} text={audio} />
         </div>
         <p className="text-base text-gray-700 leading-relaxed mb-3">{sl.s2.intro}</p>
         <div className="space-y-2">{options}</div>
@@ -83,7 +99,7 @@ function renderStep(step, sl, tc) {
         <p className="text-xs font-semibold text-gray-400 mb-2 uppercase tracking-wide">{sl.subheading}</p>
         <div className="flex items-center justify-between mb-3">
           <h2 className="text-[18px] font-bold text-gray-900">{sl.s3.title}</h2>
-          <AudioBtn label={tc.listen} />
+          <AudioBtn label={tc.listen} text={audio} />
         </div>
         <p className="text-base text-gray-700 leading-relaxed mb-3">{sl.s3.body}</p>
         <div className="bg-gray-50 rounded-xl px-3 py-3">
@@ -100,7 +116,7 @@ function renderStep(step, sl, tc) {
         <p className="text-xs font-semibold text-gray-400 mb-2 uppercase tracking-wide">{sl.subheading}</p>
         <div className="flex items-center justify-between mb-3">
           <h2 className="text-[18px] font-bold text-gray-900">{sl.s4.title}</h2>
-          <AudioBtn label={tc.listen} />
+          <AudioBtn label={tc.listen} text={audio} />
         </div>
         <p className="text-base text-gray-700 leading-relaxed">{sl.s4.body}</p>
       </div>
@@ -113,7 +129,7 @@ function renderStep(step, sl, tc) {
         <p className="text-xs font-semibold text-gray-400 mb-2 uppercase tracking-wide">{sl.subheading}</p>
         <div className="flex items-center justify-between mb-3">
           <h2 className="text-[18px] font-bold text-gray-900">{sl.s5.title}</h2>
-          <AudioBtn label={tc.listen} />
+          <AudioBtn label={tc.listen} text={audio} />
         </div>
         <p className="text-base text-gray-700 leading-relaxed mb-3">{sl.s5.body}</p>
         <div className="bg-gray-50 rounded-xl px-3 py-2 text-base text-gray-600">
@@ -129,7 +145,7 @@ function renderStep(step, sl, tc) {
         <p className="text-xs font-semibold text-gray-400 mb-2 uppercase tracking-wide">{sl.subheading}</p>
         <div className="flex items-center justify-between mb-3">
           <h2 className="text-[18px] font-bold text-gray-900">{sl.s6.title}</h2>
-          <AudioBtn label={tc.listen} />
+          <AudioBtn label={tc.listen} text={audio} />
         </div>
         <p className="text-base text-gray-700 leading-relaxed mb-3">{sl.s6.body}</p>
         <div className="bg-gray-50 rounded-xl p-3">
@@ -156,7 +172,7 @@ function renderStep(step, sl, tc) {
         <p className="text-xs font-semibold text-gray-400 mb-2 uppercase tracking-wide">{sl.subheading}</p>
         <div className="flex items-center justify-between mb-3">
           <h2 className="text-[18px] font-bold text-gray-900">{sl.s7.title}</h2>
-          <AudioBtn label={tc.listen} />
+          <AudioBtn label={tc.listen} text={audio} />
         </div>
         <p className="text-base text-gray-700 leading-relaxed mb-3">{sl.s7.body1}</p>
         <p className="text-base text-gray-700 leading-relaxed mb-3">

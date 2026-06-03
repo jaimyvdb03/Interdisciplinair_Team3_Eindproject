@@ -7,13 +7,27 @@ import ProgressBar from '../../components/ProgressBar';
 import { useLanguage } from '../../context/LanguageContext';
 import { translations } from '../../i18n/translations';
 
+// Builds the spoken text for a step from its translated content.
+function cvStepText(s) {
+  const parts = [s.title];
+  if (s.type === 'intro') { parts.push(s.body1, s.body2); }
+  else if (s.type === 'list') { parts.push(s.body, ...s.items.map((i) => i.label)); }
+  else if (s.type === 'mockup') { parts.push(s.body, s.noExpTitle, s.noExpText); }
+  else if (s.type === 'methods') {
+    parts.push(s.body);
+    s.methods.forEach((m) => parts.push(m.label + '. ' + m.steps.join('. ')));
+  }
+  return parts.filter(Boolean).join('. ');
+}
+
 function renderStep(s, tc) {
+  const audio = cvStepText(s);
   if (s.type === 'intro') {
     return (
       <div className="bg-white rounded-2xl p-4 shadow-sm">
         <div className="flex items-start justify-between gap-3 mb-3">
           <h2 className="text-[18px] font-bold text-gray-900">{s.title}</h2>
-          <AudioBtn label={tc.listen} />
+          <AudioBtn label={tc.listen} text={audio} />
         </div>
         <p className="text-base text-gray-700 leading-relaxed mb-3">{s.body1}</p>
         <p className="text-base text-gray-700 leading-relaxed mb-4">{s.body2}</p>
@@ -37,7 +51,7 @@ function renderStep(s, tc) {
       <div className="bg-white rounded-2xl p-4 shadow-sm">
         <div className="flex items-center justify-between mb-3">
           <h2 className="text-[18px] font-bold text-gray-900">{s.title}</h2>
-          <AudioBtn label={tc.listen} />
+          <AudioBtn label={tc.listen} text={audio} />
         </div>
         <p className="text-base text-gray-700 leading-relaxed mb-3">{s.body}</p>
         <div className="space-y-2">{items}</div>
@@ -50,7 +64,7 @@ function renderStep(s, tc) {
       <div className="bg-white rounded-2xl p-4 shadow-sm">
         <div className="flex items-center justify-between mb-3">
           <h2 className="text-[18px] font-bold text-gray-900">{s.title}</h2>
-          <AudioBtn label={tc.listen} />
+          <AudioBtn label={tc.listen} text={audio} />
         </div>
         <p className="text-base text-gray-700 leading-relaxed mb-3">{s.body}</p>
         {s.noExpTitle && (
@@ -88,7 +102,7 @@ function renderStep(s, tc) {
       <div className="bg-white rounded-2xl p-4 shadow-sm">
         <div className="flex items-start justify-between gap-3 mb-3">
           <h2 className="text-[18px] font-bold text-gray-900">{s.title}</h2>
-          <AudioBtn label={tc.listen} />
+          <AudioBtn label={tc.listen} text={audio} />
         </div>
         <p className="text-base text-gray-700 leading-relaxed mb-4">{s.body}</p>
         {methodCards}

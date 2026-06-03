@@ -21,3 +21,11 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Local secrets (extra-explicit)
+.env
+
+# Deploy artifacts — built and zipped locally; we ship straight to Azure
+/_deploy/
+/app.zip
+
