@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../i18n/translations';
+import { ICONS } from '../iconPaths';
 
 // ── Step dots ──────────────────────────────────────────────────────────────
 function StepDots({ current, total }) {
@@ -20,19 +21,17 @@ function StepDots({ current, total }) {
 /** Step 1 – vier menu-kaarten */
 function Visual1({ t }) {
   const items = [
-    { label: t.home.menu[0].label, bg: 'bg-red-50',     emoji: '📖' },
-    { label: t.home.menu[1].label, bg: 'bg-blue-100',   emoji: '▶️' },
-    { label: t.home.menu[2].label, bg: 'bg-purple-100', emoji: '🧩' },
-    { label: t.home.menu[3].label, bg: 'bg-teal-100',   emoji: '💬' },
+    { label: t.home.menu[0].label, icon: ICONS.lessen },
+    { label: t.home.menu[1].label, icon: ICONS.video },
+    { label: t.home.menu[2].label, icon: ICONS.oefeningen },
+    { label: t.home.menu[3].label, icon: ICONS.hulp },
   ];
   const menuCards = [];
   for (let i = 0; i < items.length; i++) {
     const item = items[i];
     menuCards[i] = (
       <div key={item.label} className="bg-white rounded-xl px-2.5 py-2 flex items-center gap-2 shadow-sm">
-        <div className={`w-7 h-7 rounded-lg ${item.bg} flex items-center justify-center text-sm shrink-0`}>
-          {item.emoji}
-        </div>
+        <img src={item.icon} alt={item.label + ' icoon'} className="w-7 h-7 object-contain shrink-0" />
         <span className="text-[10px] font-bold text-gray-700 leading-tight">{item.label}</span>
       </div>
     );
@@ -158,9 +157,7 @@ function Visual5({ t }) {
       {/* Rood kader om hulp-kaart */}
       <div className="border-[2.5px] border-red-500 rounded-xl overflow-hidden mt-1">
         <div className="bg-white px-3 py-2.5 flex items-center gap-2.5">
-          <div className="w-8 h-8 bg-teal-100 rounded-lg flex items-center justify-center text-base shrink-0">
-            💬
-          </div>
+          <img src={ICONS.hulp} alt="hulp icoon" className="w-8 h-8 object-contain shrink-0" />
           <div>
             <p className="text-[10px] font-bold text-gray-800">{t.home.menu[3].label}</p>
             <p className="text-[9px] text-gray-400">{t.home.menu[3].sub}</p>
@@ -179,7 +176,7 @@ function Visual6({ t }) {
       {/* Video kaart met rood kader */}
       <div className="border-[2.5px] border-red-500 rounded-xl overflow-hidden">
         <div className="bg-white px-3 py-2.5 flex items-center gap-2.5">
-          <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center text-base shrink-0">🎤</div>
+          <img src={ICONS.video} alt="video icoon" className="w-8 h-8 object-contain shrink-0" />
           <div className="flex-1 min-w-0">
             <div className="h-2 bg-gray-300 rounded w-3/4 mb-1" />
             <div className="h-1.5 bg-gray-200 rounded w-1/3" />
