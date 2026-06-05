@@ -1,6 +1,7 @@
 export const pl = {
   common: {
     listen:   '🔊 Słuchaj',
+    stop:     "⏹ Stop",
     check:    'Sprawdź',
     backHome: 'Powrót do strony głównej',
     next:     'Dalej →',
@@ -15,6 +16,9 @@ export const pl = {
       { label: 'Lekcje wideo',          sub: 'Oglądaj i słuchaj  ·  Wideo'        },
       { label: 'Ćwiczenia',             sub: 'Spróbuj samodzielnie'               },
       { label: 'Potrzebujesz pomocy?',  sub: 'Zadaj pytanie'                      },
+      { label: "Rozmowa kwalifikacyjna", sub: "Ćwicz z Sanne  ·  Głos" },
+      { label: "Quiz wiedzy", sub: "Quiz z Pimem  ·  Głos" },
+      { label: "Tabela wyników", sub: "Zobacz najlepsze wyniki" },
     ],
     progressLabel: 'Twój postęp',
     progressPct:   (p) => `${p}% ukończono`,

@@ -1,6 +1,7 @@
 export const tr = {
   common: {
     listen:   '🔊 Dinle',
+    stop:     "⏹ Dur",
     check:    'Kontrol et',
     backHome: 'Ana sayfaya dön',
     next:     'Sonraki →',
@@ -15,6 +16,9 @@ export const tr = {
       { label: 'Video dersler',    sub: 'İzle ve dinle  ·  Video'        },
       { label: 'Alıştırmalar',     sub: 'Kendin dene'                    },
       { label: 'Yardım lazım mı?', sub: 'Sorunuzu sorun'                 },
+      { label: "İş görüşmesi", sub: "Sanne ile alıştırma  ·  Sesli" },
+      { label: "Bilgi yarışması", sub: "Pim ile yarışma  ·  Sesli" },
+      { label: "Skor tablosu", sub: "En iyi skorları gör" },
     ],
     progressLabel: 'İlerlemeniz',
     progressPct:   (p) => `${p}% tamamlandı`,

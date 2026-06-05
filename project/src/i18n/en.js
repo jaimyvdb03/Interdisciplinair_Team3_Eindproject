@@ -1,6 +1,7 @@
 export const en = {
   common: {
     listen:   '🔊 Listen',
+    stop:     "⏹ Stop",
     check:    'Check',
     backHome: 'Back to home',
     next:     'Next →',
@@ -15,6 +16,9 @@ export const en = {
       { label: 'Video lessons', sub: 'Watch and listen  ·  Video'       },
       { label: 'Exercises',     sub: 'Try it yourself'                  },
       { label: 'Need help?',    sub: 'Ask your question'                },
+      { label: "Job interview", sub: "Practice with Sanne  ·  Voice" },
+      { label: "Trivia", sub: "Quiz with Pim  ·  Voice" },
+      { label: "Leaderboard", sub: "View the top scores" },
     ],
     progressLabel: 'Your progress',
     progressPct:   (p) => `${p}% completed`,

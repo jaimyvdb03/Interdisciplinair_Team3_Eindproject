@@ -17,10 +17,13 @@ export default function Home() {
   const [showHelp, setShowHelp] = useState(false);
 
   const MENU = [
-    { icon: ICONS.lessen,     to: '/lessen',     label: t.home.menu[0].label, sub: t.home.menu[0].sub },
-    { icon: ICONS.video,      to: '/video',       label: t.home.menu[1].label, sub: t.home.menu[1].sub },
-    { icon: ICONS.oefeningen, to: '/oefeningen',  label: t.home.menu[2].label, sub: t.home.menu[2].sub },
-    { icon: ICONS.hulp,       to: '/hulp',        label: t.home.menu[3].label, sub: t.home.menu[3].sub },
+    { icon: ICONS.lessen,     to: '/lessen',       label: t.home.menu[0].label, sub: t.home.menu[0].sub },
+    { icon: ICONS.video,      to: '/video',        label: t.home.menu[1].label, sub: t.home.menu[1].sub },
+    { icon: ICONS.oefeningen, to: '/oefeningen',   label: t.home.menu[2].label, sub: t.home.menu[2].sub },
+    { icon: ICONS.hulp,       to: '/hulp',         label: t.home.menu[3].label, sub: t.home.menu[3].sub },
+    { emoji: '🎙️',            to: '/sollicitatie', label: t.home.menu[4].label, sub: t.home.menu[4].sub },
+    { emoji: '🧠',            to: '/trivia',       label: t.home.menu[5].label, sub: t.home.menu[5].sub },
+    { emoji: '🏆',            to: '/leaderboard',  label: t.home.menu[6].label, sub: t.home.menu[6].sub },
   ];
 
   const menuCards = [];
@@ -32,7 +35,11 @@ export default function Home() {
         onClick={() => navigate(item.to)}
         className="flex items-center gap-3.5 bg-white rounded-2xl px-3.5 py-3.5 sm:px-5 sm:py-4 cursor-pointer text-left w-full shadow-sm border-none active:scale-[0.98] transition-transform"
       >
-        <img src={item.icon} alt={item.label + ' icoon'} className="w-12 h-12 object-contain shrink-0" />
+        {item.emoji ? (
+          <div className="w-12 h-12 rounded-[13px] bg-blue-100 flex items-center justify-center text-2xl shrink-0">{item.emoji}</div>
+        ) : (
+          <img src={item.icon} alt={item.label + ' icoon'} className="w-12 h-12 object-contain shrink-0" />
+        )}
         <div className="flex-1 min-w-0">
           <p className="text-[17px] font-bold text-gray-900 leading-tight">{item.label}</p>
           <p className="text-sm text-gray-400 mt-0.5 leading-tight">{item.sub}</p>

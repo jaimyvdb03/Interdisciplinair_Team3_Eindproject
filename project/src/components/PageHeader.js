@@ -1,8 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 import LangPicker from './LangPicker';
+import { useLanguage } from '../context/LanguageContext';
+import { useSpeech } from '../speech';
 
-export default function PageHeader({ title, onBack, step, total, titleClass = '' }) {
+export default function PageHeader({ title, onBack, step, total, titleClass = '', audioText }) {
   const navigate = useNavigate();
+  const { lang } = useLanguage();
+  const { playing, toggle } = useSpeech(lang);
+
   return (
     <div className="flex items-center gap-3 px-4 pt-5 pb-3 bg-gray-100 sticky top-0 z-10 sm:px-0 sm:pt-7">
       <button
@@ -12,6 +17,18 @@ export default function PageHeader({ title, onBack, step, total, titleClass = ''
         ‹
       </button>
       <h1 className={`text-[19px] font-bold text-gray-900 flex-1 ${titleClass}`}>{title}</h1>
+      {audioText && (
+        <button
+          onClick={() => toggle(audioText)}
+          aria-label="Lees voor"
+          aria-pressed={playing}
+          className={`w-[34px] h-[34px] rounded-full border-none flex items-center justify-center text-base cursor-pointer shrink-0 transition-colors ${
+            playing ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 active:bg-gray-300'
+          }`}
+        >
+          {playing ? '⏹' : '🔊'}
+        </button>
+      )}
       <LangPicker />
       <button
         onClick={() => navigate('/')}

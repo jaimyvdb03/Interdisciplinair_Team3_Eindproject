@@ -6,13 +6,23 @@ import ProgressBar from '../../components/ProgressBar';
 import { useLanguage } from '../../context/LanguageContext';
 import { translations } from '../../i18n/translations';
 
+// Builds the spoken text for a step from its translated content.
+function kgStepText(s, tk) {
+  const parts = [s.title];
+  if (s.type === 'intro') { parts.push(s.body1, s.body2, tk.introBody3, tk.introBody4); }
+  else if (s.kind === 'clothing') { parts.push(s.body, tk.clothingExtra1, tk.clothingExtra2, ...s.items.map((i) => i.label)); }
+  else if (s.kind === 'behavior') { parts.push(s.body, tk.behaviorExtra1, tk.behaviorExtra2, ...s.items.map((i) => i.label)); }
+  return parts.filter(Boolean).join('. ');
+}
+
 function renderStep(s, tc, tk) {
+  const audio = kgStepText(s, tk);
   if (s.type === 'intro') {
     return (
       <div className="bg-white rounded-2xl p-4 shadow-sm">
         <div className="flex items-start justify-between gap-3 mb-3">
           <h2 className="text-[18px] font-bold text-gray-900">{s.title}</h2>
-          <AudioBtn label={tc.listen} />
+          <AudioBtn label={tc.listen} text={audio} />
         </div>
         <p className="text-base text-gray-700 leading-relaxed mb-3">{s.body1}</p>
         <p className="text-base text-gray-700 leading-relaxed mb-4">{s.body2}</p>
@@ -40,7 +50,7 @@ function renderStep(s, tc, tk) {
       <div className="bg-white rounded-2xl p-4 shadow-sm">
         <div className="flex items-center justify-between mb-3">
           <h2 className="text-[18px] font-bold text-gray-900">{s.title}</h2>
-          <AudioBtn label={tc.listen} />
+          <AudioBtn label={tc.listen} text={audio} />
         </div>
         <p className="text-base text-gray-700 leading-relaxed mb-4">{s.body}</p>
         <div className="flex gap-6 justify-center mb-4">
@@ -68,7 +78,7 @@ function renderStep(s, tc, tk) {
       <div className="bg-white rounded-2xl p-4 shadow-sm">
         <div className="flex items-center justify-between mb-3">
           <h2 className="text-[18px] font-bold text-gray-900">{s.title}</h2>
-          <AudioBtn label={tc.listen} />
+          <AudioBtn label={tc.listen} text={audio} />
         </div>
         <p className="text-base text-gray-700 leading-relaxed mb-4">{s.body}</p>
         <div className="flex gap-6 justify-center mb-4">
