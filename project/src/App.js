@@ -14,8 +14,6 @@ import OpTijdKomen from './pages/exercises/OpTijdKomen';
 import VideoLessen from './pages/VideoLessen';
 import Hulp from './pages/Hulp';
 import Sollicitatie from './pages/Sollicitatie';
-import Trivia from './pages/Trivia';
-import Leaderboard from './pages/Leaderboard';
 
 export default function App() {
   return (
@@ -36,9 +34,7 @@ export default function App() {
         <Route path="/video"                          element={<VideoLessen />} />
         <Route path="/hulp"                           element={<Hulp />} />
         <Route path="/sollicitatie"                   element={<Sollicitatie />} />
-        <Route path="/trivia"                         element={<Trivia />} />
-        <Route path="/leaderboard"                    element={<Leaderboard />} />
-        <Route path="*"                               element={<Navigate to="/" replace />} />
+<Route path="*"                               element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
     </LanguageProvider>

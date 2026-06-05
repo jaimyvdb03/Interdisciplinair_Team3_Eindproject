@@ -17,8 +17,6 @@ export const nl = {
       { label: 'Oefeningen',   sub: 'Probeer het zelf'                  },
       { label: 'Hulp nodig?',  sub: 'Stel je vraag'                     },
       { label: "Sollicitatiegesprek", sub: "Oefen met Sanne  ·  Spraak" },
-      { label: "Triviaspel", sub: "Quiz met Pim  ·  Spraak" },
-      { label: "Leaderboard", sub: "Bekijk de topscores" },
     ],
     progressLabel: 'Je voortgang',
     progressPct:   (p) => `${p}% voltooid`,

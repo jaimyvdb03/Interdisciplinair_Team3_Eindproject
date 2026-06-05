@@ -17,8 +17,6 @@ export const en = {
       { label: 'Exercises',     sub: 'Try it yourself'                  },
       { label: 'Need help?',    sub: 'Ask your question'                },
       { label: "Job interview", sub: "Practice with Sanne  ·  Voice" },
-      { label: "Trivia", sub: "Quiz with Pim  ·  Voice" },
-      { label: "Leaderboard", sub: "View the top scores" },
     ],
     progressLabel: 'Your progress',
     progressPct:   (p) => `${p}% completed`,
