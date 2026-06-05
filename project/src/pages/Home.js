@@ -22,8 +22,6 @@ export default function Home() {
     { icon: ICONS.oefeningen, to: '/oefeningen',   label: t.home.menu[2].label, sub: t.home.menu[2].sub },
     { icon: ICONS.hulp,       to: '/hulp',         label: t.home.menu[3].label, sub: t.home.menu[3].sub },
     { emoji: '🎙️',            to: '/sollicitatie', label: t.home.menu[4].label, sub: t.home.menu[4].sub },
-    { emoji: '🧠',            to: '/trivia',       label: t.home.menu[5].label, sub: t.home.menu[5].sub },
-    { emoji: '🏆',            to: '/leaderboard',  label: t.home.menu[6].label, sub: t.home.menu[6].sub },
   ];
 
   const menuCards = [];

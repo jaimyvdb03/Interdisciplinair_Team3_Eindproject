@@ -29,8 +29,7 @@ const UI = {
     diffTitle: 'Moeilijkheidsgraad', diffEasy: 'Makkelijk', diffMedium: 'Normaal', diffHard: 'Moeilijk',
     diffHint: 'Makkelijk: rustige dorpswinkel, veel hints. Moeilijk: drukke AH XL, strenger.',
     subScores: { clarity: 'Duidelijkheid', motivation: 'Motivatie', customer_focus: 'Klantgerichtheid', availability: 'Beschikbaarheid', examples: 'Voorbeelden' },
-    scoresTitle: 'Jouw scores', bonusLabel: 'Moeilijkheidsbonus', totalLabel: 'Leaderboard-punten',
-    place: 'Plaats op leaderboard', placing: 'Bezig…', viewBoard: 'Bekijk leaderboard',
+    scoresTitle: 'Jouw scores', bonusLabel: 'Moeilijkheidsbonus',
   },
   en: {
     title: 'Job interview',
@@ -56,8 +55,7 @@ const UI = {
     diffTitle: 'Difficulty', diffEasy: 'Easy', diffMedium: 'Normal', diffHard: 'Hard',
     diffHint: 'Easy: calm village store, lots of hints. Hard: busy AH XL, stricter.',
     subScores: { clarity: 'Clarity', motivation: 'Motivation', customer_focus: 'Customer focus', availability: 'Availability', examples: 'Examples' },
-    scoresTitle: 'Your scores', bonusLabel: 'Difficulty bonus', totalLabel: 'Leaderboard points',
-    place: 'Add to leaderboard', placing: 'Saving…', viewBoard: 'View leaderboard',
+    scoresTitle: 'Your scores', bonusLabel: 'Difficulty bonus',
   },
   es: {
     title: 'Entrevista de trabajo',
@@ -83,8 +81,7 @@ const UI = {
     diffTitle: 'Dificultad', diffEasy: 'Fácil', diffMedium: 'Normal', diffHard: 'Difícil',
     diffHint: 'Fácil: tienda tranquila de pueblo, muchas pistas. Difícil: AH XL con mucho ajetreo, más estricta.',
     subScores: { clarity: 'Claridad', motivation: 'Motivación', customer_focus: 'Atención al cliente', availability: 'Disponibilidad', examples: 'Ejemplos' },
-    scoresTitle: 'Tus puntuaciones', bonusLabel: 'Bonus de dificultad', totalLabel: 'Puntos de leaderboard',
-    place: 'Añadir al leaderboard', placing: 'Guardando…', viewBoard: 'Ver leaderboard',
+    scoresTitle: 'Tus puntuaciones', bonusLabel: 'Bonus de dificultad',
   },
 };
 
@@ -125,8 +122,6 @@ export default function Sollicitatie() {
   const [ptt, setPtt] = useState(getPtt());
   const [difficulty, setDifficulty] = useState(getDifficulty());
   const [recording, setRecording] = useState(false);
-  const [posting, setPosting] = useState(false);
-  const [posted, setPosted] = useState(false);
 
   const pttMode = useRef(false);
   const diffMode = useRef('easy');
@@ -199,7 +194,7 @@ export default function Sollicitatie() {
         const n = parseInt(args.step, 10);
         if (!isNaN(n) && n >= 1 && n <= N_STEPS) setStep(n);
       } else if (name === 'end_interview') {
-        endResult.current = args; running.current = false; setResult(args); setPosted(false); setView('results');
+        endResult.current = args; running.current = false; setResult(args); setView('results');
       }
       return;
     }
@@ -233,7 +228,7 @@ export default function Sollicitatie() {
     pttMode.current = getPtt();
     diffMode.current = difficulty;
     recordingRef.current = false; recordedFrames.current = 0; setRecording(false);
-    setResult(null); setTurns([]); setStep(1); setSanneSpeaking(false); setPosted(false); setView('live');
+    setResult(null); setTurns([]); setStep(1); setSanneSpeaking(false); setView('live');
 
     if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) { showError(ui.errMic); running.current = false; return; }
     try { mediaStream.current = await navigator.mediaDevices.getUserMedia({ audio: true }); }
@@ -283,20 +278,6 @@ export default function Sollicitatie() {
     ws.current = null;
     await cleanupAudio();
     if (was && !endResult.current) setView('intro');
-  }
-
-  async function placeOnBoard() {
-    if (!result || posting) return;
-    setPosting(true);
-    try {
-      await fetch('/api/leaderboard', {
-        method: 'POST', headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ game: 'sollicitatie', ...result }),
-      });
-      setPosted(true);
-    } catch (e) {}
-    setPosting(false);
-    navigate('/leaderboard', { state: { game: 'sollicitatie', difficulty: result.difficulty || diffMode.current, highlightId: result.id } });
   }
 
   // ── render ──
@@ -420,10 +401,6 @@ export default function Sollicitatie() {
                     <span className="text-gray-600">{ui.bonusLabel}</span>
                     <span className="font-bold text-blue-600">+{(Number(result.difficulty_bonus) || 0).toFixed(1).replace('.', ',')}</span>
                   </div>
-                  <div className="flex justify-between items-center mt-1 text-sm">
-                    <span className="font-bold text-gray-900">{ui.totalLabel}</span>
-                    <span className="font-extrabold text-blue-700 text-lg">{(Number(result.leaderboard_points) || 0).toFixed(1).replace('.', ',')}</span>
-                  </div>
                 </div>
               )}
 
@@ -438,11 +415,7 @@ export default function Sollicitatie() {
                 </div>
               </div>
 
-              <button onClick={placeOnBoard} disabled={posting}
-                className="w-full max-w-sm mx-auto block bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white border-none rounded-2xl py-4 text-base font-bold cursor-pointer transition-colors mb-2.5 disabled:opacity-60">
-                {posting ? ui.placing : (posted ? ui.viewBoard : ui.place)}
-              </button>
-              <button onClick={async () => { await stop(); endResult.current = null; setResult(null); setView('intro'); }} className="w-full max-w-sm mx-auto block bg-gray-200 hover:bg-gray-300 text-gray-800 border-none rounded-2xl py-3.5 text-base font-bold cursor-pointer transition-colors">{ui.retry}</button>
+<button onClick={async () => { await stop(); endResult.current = null; setResult(null); setView('intro'); }} className="w-full max-w-sm mx-auto block bg-gray-200 hover:bg-gray-300 text-gray-800 border-none rounded-2xl py-3.5 text-base font-bold cursor-pointer transition-colors">{ui.retry}</button>
             </div>
           )}
 

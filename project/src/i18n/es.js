@@ -17,8 +17,6 @@ export const es = {
       { label: 'Ejercicios',        sub: 'Inténtalo tú mismo'               },
       { label: '¿Necesitas ayuda?', sub: 'Haz tu pregunta'                  },
       { label: "Entrevista de trabajo", sub: "Practica con Sanne  ·  Voz" },
-      { label: "Trivia", sub: "Concurso con Pim  ·  Voz" },
-      { label: "Tabla de líderes", sub: "Ver las mejores puntuaciones" },
     ],
     progressLabel: 'Tu progreso',
     progressPct:   (p) => `${p}% completado`,
